@@ -204,7 +204,7 @@ li:hover{
 
 
 .modal {
-
+display: none;
   position: fixed;
   z-index: 1000; /* au-dessus de tout */
   left: 0;
