@@ -185,8 +185,8 @@ li:hover{
 }
 
 .fixed_bg h3 {
-  position: absolute;       /* position par rapport à la section sticky */
-  top: 100px;                 /* centre vertical */
+  position: absolute;
+  top: 100px;
 
 }
 
@@ -206,19 +206,19 @@ li:hover{
 .modal {
 display: none;
   position: fixed;
-  z-index: 1000; /* au-dessus de tout */
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* pour scroll si contenu long */
-  background-color: rgba(0,0,0,0.7); /* fond semi-transparent */
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
 }
 
 .modal-content {
   background-color: #FFF8E1;
   margin: 10% auto;
-  max-width: 600px;
+  width: 80%;
   position: relative;
   padding: 2rem;
 }
