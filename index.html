@@ -1,27 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Portfolio</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <ul>
-            <li>ABOUT</li>
-            <li>PROJECTS</li>
-            <li>CONTACTS</li>
-        </ul>
+      <ul>
+        <li>à propos</li>
+        <li>projets</li>
+        <li>contacts</li>
+      </ul>
     </nav>
 
     <section class="home">
-        <div class="home_bg">
-            <img class="star star1" src="img/star1.webp"/>
-            <img class="star star2" src="img/star2.webp"/>
-            <img class="star star3" src="img/star3.webp"/>
-        </div>
-        <img class="self_portrait" src="img/self_portrait.webp"/>
+      <h1>PORTFOLIO</h1>
+      <h2>Mélina Chassagnon</h2>
+      <!-- <div class="container_link_home">
+        <a class="link_home" href="creation_multimedia.html"
+          >Création Multimédia</a
+        >
+        <a class="link_home" href="photo_illu.html"
+          >Photographie & Illustration</a
+        >
+      </div> -->
     </section>
-</body>
+
+    <section class="about_me">
+      <div>
+        <h3>à propos</h3>
+      </div>
+    </section>
+
+    <section class="container_projects">
+      <div class="fixed_bg">
+        <h3>MES<br />PROJETS</h3>
+      </div>
+
+      <div class="cards-wrapper">
+        <button class="project tilt-left" id="openModal">
+          <div class="etiquette">
+            <h4>Site Inventaire</h4>
+            <p>developpemnt web / UI UX design /</p>
+          </div>
+          <img src="img/bg_cd.png" />
+          <img src="img/cd.png" class="cd" />
+          <img src="img/front_cd.png" class="cd_opacity" />
+          <img src="img/front_cd.png" class="cd_density" />
+        </button>
+
+        <button class="project tilt-right" id="openModal">
+          <div class="etiquette">
+            <h4>Montage</h4>
+            <p>After Effect / Premiere Pro</p>
+          </div>
+          <img src="img/bg_cd_blue.png" />
+          <img src="img/cd_blue.png" class="cd" />
+          <img src="img/front_cd_blue.png" class="cd_opacity" />
+          <img src="img/front_cd_blue.png" class="cd_density" />
+        </button>
+
+        <button class="project tilt-left" id="openModal">
+          <div class="etiquette">
+            <h4>Campagne Fête de la Laine</h4>
+            <p>Figma</p>
+          </div>
+          <img src="img/bg_cd_yellow.png" />
+          <img src="img/cd_yellow.png" class="cd" />
+          <img src="img/front_cd_yellow.png" class="cd_opacity" />
+          <img src="img/front_cd_yellow.png" class="cd_density" />
+        </button>
+      </div>
+    </section>
+
+    <!-- Modale -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal_header">
+          <h2>Site Inventaire</h2>
+          <p>Développement web / UI UX design</p>
+          <div class="project">
+            <img src="img/bg_cd.png" />
+            <img src="img/cd.png" class="cd" />
+            <img src="img/front_cd.png" class="cd_opacity" />
+            <img src="img/front_cd.png" class="cd_density" />
+          </div>
+        </div>
+        <div class="modal_contenu">
+            <p>
+          Langages utilisés : HTML, CSS, Javascript, PHP Logiciels utilisés :
+          Nomad, Figma, Photoshop, Illustrator En 2025, dans le cadre d’un
+          projet scolaire, nous avons dû réaliser, seuls, un site faisant
+          l’inventaire d’objets de notre choix, ce en créant une base de données
+          et des filtres de recherche. J’ai décidé de choisir des figurines
+          nommées “VAG”. J’ai commencé par créer un moodboard à l’aide de Figma
+          et Pinterest. Une fois cela fait, j’ai continué sur figma pour
+          réaliser un design pour mon site. J’ai également décidé d’ajouter des
+          fonctionnalités à mon site, telles que des sessions utilisateurs et
+          une liste de souhaits. Enfin, j’ai pû procéder au code de mon projet.
+          J’ai alors dû apprendre de nombreuses choses, comme la réalisation et
+          l’intégration d’un modèle 3D. J’ai également dû créer une base de
+          données et récupérer les données nécessaires en PHP. Extrait du code
+          intégrant le modèle 3D Extrait de la base de données Enfin, une fois
+          le site fonctionnel et plusieurs fonctionnalités nouvelles pour moi
+          (ajouts de données dans la base, pagination, gestion de comptes) j’ai
+          pu réaliser les derniers visuels : détourage de presque 1300
+          figurines, réalisation d’éléments graphiques sur Illustrator.
+        </p>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <script>
+  const modal = document.getElementById("myModal");
+  const btn = document.getElementById("openModal");
+  const span = document.querySelector(".modal .close");
+
+  // Ouvrir la modale
+  btn.onclick = function() {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden"; // empêche le scroll en arrière-plan
+  }
+
+  // Fermer avec le X
+  span.onclick = function() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  // Fermer si clic hors du contenu
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+</script>
+
+  </body>
 </html>
