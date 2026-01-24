@@ -1,0 +1,10 @@
+#cd_chain_container {
+  width: 100%;
+  height: 100vh; /* ajuste selon ton besoin */
+  position: relative;
+  overflow: hidden;
+}
+
+.cd-link {
+  cursor: pointer;
+}
