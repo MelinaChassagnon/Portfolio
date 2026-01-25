@@ -2,22 +2,21 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 let scene, camera, renderer;
+let container; // sera initialisé dans init()
 const models = [];
-const container = document.getElementById("cd_chain_container");
 
-// Texte associé à chaque CD (correspond aux slots)
+// Texte associé à chaque CD
 const cdTexts = [
   { title: "Campagne de la Fête de la Laine", description: "Création d'une campagne institutionelle", link:"/pages/project1.html"},
   { title: "Site Inventaire", description: "Site web recueillant l'inventaire des figurines 'VAG'.", link:"/pages/project2.html" },
   { title: "Court-métrage 'THE MOTH'", description: "Court-métrage", link:"/pages/project3.html"},
-  { title: "Affiche rapide", description: "Affiche et concept réalisé lors d'un exercice en moins d'une heure.", link:"/pages/project4.html" },
+  { title: "Affiche NOOMA", description: "Exercice de création de concept et d’affiche rapide", link:"/pages/project4.html" },
   { title: "Logo", description: "Logo officieux des deuxièmes années du BUT MMI", link:"/pages/project5.html" }
 ];
 
-
 let titleEl, descEl, linkEl;
 
-// slots
+// Slots
 const slots = [
   { position: new THREE.Vector3(-1.2, 0.3, 1.3), rotation: new THREE.Euler(0.2, -0.1, -0.1), scale: 0.8 },
   { position: new THREE.Vector3(-0.7, 0.5, 0.9), rotation: new THREE.Euler(0.5, -0.1, -0.1), scale: 1 },
@@ -26,12 +25,24 @@ const slots = [
   { position: new THREE.Vector3(1.4, 0.2, -0.3), rotation: new THREE.Euler(0, -0.5, 0.2), scale: 0.6 }
 ];
 
-// Slots actuels pour l'animation
 let currentSlots = slots.map(s => ({...s}));
-let currentIndex = 0; // CD visible au centre
+let currentIndex = 0;
 
-// init
+// Scroll
+let scrollDelta = 0;
+const scrollSpeed = 0.0015;
+
+// ================= INIT =================
 function init() {
+  console.log("Init démarré");
+
+  container = document.getElementById("cd_chain_container");
+  if (!container) {
+    console.error("Container #cd_chain_container introuvable !");
+    return;
+  }
+  console.log("Container trouvé :", container);
+
   // Récupérer les éléments texte
   titleEl = document.querySelector(".cd_title");
   descEl = document.querySelector(".cd_description");
@@ -41,7 +52,7 @@ function init() {
   scene.background = new THREE.Color("rgb(248, 237, 231)");
 
   camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
-  camera.position.set(0, 3, 3);
+  camera.position.set(0, 2, 2);
   camera.lookAt(0, 0, 0);
 
   scene.add(new THREE.AmbientLight(0xffffff, 0.7));
@@ -65,6 +76,7 @@ function init() {
 
   const loader = new GLTFLoader();
   loader.load("../3D/Cd.gltf", (gltf) => {
+    console.log("Modèle chargé !");
     slots.forEach((slot, i) => {
       const model = gltf.scene.clone(true);
       applySlot(model, currentSlots[i]);
@@ -81,7 +93,7 @@ function init() {
   onResize();
 }
 
-
+// ================= UTILITIES =================
 function getScaleRatio() {
   return Math.max(container.clientWidth / 1920, 0.55);
 }
@@ -107,22 +119,19 @@ function onResize() {
   camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(container.clientWidth, container.clientHeight);
-
   models.forEach((model, i) => applySlot(model, currentSlots[i]));
 }
 
-// scroll
-let scrollDelta = 0;
-const scrollSpeed = 0.0015;
-
+// ================= SCROLL =================
 function initScroll() {
-  window.addEventListener("wheel", (e) => {
+  container.addEventListener("wheel", (e) => {
+    console.log("Scroll détecté sur la scène ! deltaY:", e.deltaY);
     scrollDelta += e.deltaY * scrollSpeed;
-  });
+    e.preventDefault(); // empêche le scroll de la page
+  }, { passive: false });
 }
 
-
-
+// ================= CHAINE =================
 function shiftSlots(direction = "down") {
   if (direction === "down") {
     const last = currentSlots.pop();
@@ -133,7 +142,6 @@ function shiftSlots(direction = "down") {
     currentSlots.push(first);
     currentIndex = (currentIndex - 1 + slots.length) % slots.length;
   }
-
   updateText();
 }
 
@@ -143,14 +151,14 @@ function updateText() {
   titleEl.textContent = text.title;
   descEl.textContent = text.description;
   linkEl.href = text.link;
-  linkEl.textContent = "Voir le projet"; 
+  linkEl.textContent = "Voir le projet";
 }
 
+// ================= ANIMATION LOOP =================
 function animate() {
   requestAnimationFrame(animate);
   const ratio = getScaleRatio();
 
-  // Mettre à jour la position des modèles pour l’effet “slots”
   const steps = Math.floor(scrollDelta);
   if (steps !== 0) {
     for (let s = 0; s < Math.abs(steps); s++) {
@@ -179,5 +187,5 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-
+// ================= START =================
 document.addEventListener("DOMContentLoaded", init);

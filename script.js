@@ -34,7 +34,7 @@ function setAnimationScroll() {
             trigger: gachaWrap,
             markers: false,
             start:"15% center",
-            end: "+=3100 top",
+            end: "+=3600 top",
             scrub: true,
         }
     });
