@@ -51,17 +51,36 @@ h2 {
 
 img {
     max-width: 80vw;
-    width: clamp( 300px,30vw, 2000px);
+    width: clamp( 300px,20vw, 2000px);
+    margin: 0;
+    padding: 0;
+}
+
+figure{
+    padding: 0;
+    margin: 0;
+    flex: 1 1 200px;
+}
+
+.small_img{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.img1 {
+    background-color: white;
+   width: clamp( 300px,30vw, 2000px);
 }
 
 @font-face {
   font-family: "Nohemi";
-  src: url(fonts/Nohemi-Medium.woff2);
+  src: url(../fonts/Nohemi-Medium.woff2);
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Nohemi";
-  src: url(fonts/Nohemi-Bold.woff2);
+  src: url(../fonts/Nohemi-Bold.woff2);
   font-weight: 700;
 }

@@ -93,7 +93,22 @@ h3 {
   transition: transform 0.1s linear;
 }
 
+.stickers{
+  width: clamp(200px,20vw, 20vw);
+  display: flex;
+  position: relative;
+  left: 50%;
+  top: -25vw;
+  z-index: 50;
+  align-items: center;
+}
 
+.stickers img {
+  width: 100%;
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.1s linear;
+}
 
 
 
@@ -251,6 +266,15 @@ overflow: visible;
   justify-content: space-around;
 }
 
+.sliding_text5 img {
+  width: 100%;
+  height: 100%;
+}
+
+.sliding_text5 div{
+  height: 10vh;
+}
+
 .sliding_text6 {
   grid-area: btn1;
   display: flex;
@@ -324,6 +348,26 @@ overflow: visible;
 
 .cd_description {
     margin-right: 1.5vw;
+}
+
+.temoignages {
+  margin-top: 10vh;
+  padding-left: 2vw;
+  margin-bottom: 10vh;
+}
+
+.temoignages_container {
+  padding-top: 5vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5vh;
+}
+
+.temoignage1, .temoignage2 {
+  width: clamp(300px, 30vw, 30vw);
+  height: 500px;
+  background-color: #ddc29e;
 }
 
 @font-face {
