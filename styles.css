@@ -18,7 +18,7 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
     margin-top: 10vh;
-    color: #3d0606;
+    color: #801616;
     font-size: 15vw;
     text-transform: uppercase;
     text-align: center;
@@ -27,7 +27,7 @@ h1 {
 h2 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
-    color: #3d0606;
+    color: #801616;
     font-size: 2vw;
     text-align: center;
 }
@@ -35,9 +35,28 @@ h2 {
 h3 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
-    color: #3d0606;
+    color: #801616;
     font-size: clamp(5rem,8vw, 8vw);
     text-align: left;
+}
+
+nav {
+  position: fixed; /* reste en haut */
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  z-index: 100;
+  background-color:rgb(248, 237, 231);
+}
+
+nav a {
+  text-decoration: none;
+  color: #801616;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .home_page {
@@ -214,7 +233,7 @@ background-color: black;
   "adj1 adj1 . . .";
   font-size: clamp(1rem,1vw, 1vw);
   font-family: "Nohemi", sans-serif;
-  color: #3d0606;
+  color: #801616;
 }
 
 
@@ -235,7 +254,7 @@ background-color: black;
 
 .sliding_text1 {
   grid-area: header;
-  /* border: solid 2px #3d0606; */
+  /* border: solid 2px #801616; */
   margin: auto;
   padding: 0;
   transform: translateY(-100%);
@@ -248,17 +267,17 @@ background-color: black;
 font-size: clamp(1.5rem,2vw, 2vw);
 font-weight: 700;
 overflow: visible;
-    /* border: solid 2px #3d0606; */
+    /* border: solid 2px #801616; */
 }
 
 .sliding_text3 {
   grid-area: p1;
-    /* border: solid 2px #3d0606; */
+    /* border: solid 2px #801616; */
 }
 
 .sliding_text4 {
   grid-area: p2;
-    /* border: solid 2px #3d0606; */
+    /* border: solid 2px #801616; */
 }
 
 .sliding_text5{
@@ -289,12 +308,12 @@ overflow: visible;
   font-size: 1.5vw;
   padding: 20px;
   border-radius: 20px;
-  border: solid 2px #3d0606;
+  border: solid 2px #801616;
   transition: all 0.2s ease;
 }
 
 .sliding_text6 a:hover {
-  background-color: #3d0606;
+  background-color: #801616;
   color: aliceblue;
 }
 
@@ -325,7 +344,7 @@ overflow: visible;
   height: 90vh; /* ajuste selon ton besoin */
   position: relative;
   overflow: hidden;
-  border: solid 2px #3d0606;
+  border: solid 2px #801616;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: all;
@@ -361,7 +380,7 @@ overflow: visible;
   bottom: 35vh;
   /* transform: translateY(-50%); */
   font-family: "Nohemi", sans-serif;
-  color: #3d0606;
+  color: #801616;
   width: 25vw;
 }
 

@@ -2,10 +2,10 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 let scene, camera, renderer;
-let container; // sera initialisé dans init()
+let container;
 const models = [];
 
-// Texte associé à chaque CD
+
 const cdTexts = [
   { title: "Campagne de la Fête de la Laine", description: "Création d'une campagne institutionelle", link:"/pages/project1.html"},
   { title: "VAG Inventary", description: "Site web recueillant l'inventaire des figurines 'VAG'.", link:"/pages/project2.html" },
@@ -15,6 +15,8 @@ const cdTexts = [
 ];
 
 let titleEl, descEl, linkEl;
+let prevBtn, nextBtn;
+
 
 // Slots
 const slots = [
@@ -32,7 +34,7 @@ let currentIndex = 0;
 let scrollDelta = 0;
 const scrollSpeed = 0.0015;
 
-// ================= INIT =================
+// init
 function init() {
   console.log("Init démarré");
 
@@ -43,10 +45,23 @@ function init() {
   }
   console.log("Container trouvé :", container);
 
-  // Récupérer les éléments texte
+
   titleEl = document.querySelector(".cd_title");
   descEl = document.querySelector(".cd_description");
   linkEl = document.querySelector(".cd_link");
+  prevBtn = document.querySelector(".cd_prev");
+nextBtn = document.querySelector(".cd_next");
+
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener("click", () => {
+    shiftSlots("up");
+  });
+
+  nextBtn.addEventListener("click", () => {
+    shiftSlots("down");
+  });
+}
+
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color("rgb(248, 237, 231)");
@@ -93,7 +108,7 @@ function init() {
   onResize();
 }
 
-// ================= UTILITIES =================
+
 function getScaleRatio() {
   return Math.max(container.clientWidth / 1920, 0.55);
 }
@@ -122,16 +137,16 @@ function onResize() {
   models.forEach((model, i) => applySlot(model, currentSlots[i]));
 }
 
-// ================= SCROLL =================
+// scroll
 function initScroll() {
   container.addEventListener("wheel", (e) => {
     console.log("Scroll détecté sur la scène ! deltaY:", e.deltaY);
     scrollDelta += e.deltaY * scrollSpeed;
-    e.preventDefault(); // empêche le scroll de la page
+    e.preventDefault();
   }, { passive: false });
 }
 
-// ================= CHAINE =================
+// chaine
 function shiftSlots(direction = "down") {
   if (direction === "down") {
     const last = currentSlots.pop();
@@ -154,7 +169,7 @@ function updateText() {
   linkEl.textContent = "Voir le projet";
 }
 
-// ================= ANIMATION LOOP =================
+// loop
 function animate() {
   requestAnimationFrame(animate);
   const ratio = getScaleRatio();
@@ -187,5 +202,4 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// ================= START =================
 document.addEventListener("DOMContentLoaded", init);
