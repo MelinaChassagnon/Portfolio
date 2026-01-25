@@ -36,7 +36,7 @@ h3 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
     color: #3d0606;
-    font-size: 8vw;
+    font-size: clamp(5rem,8vw, 8vw);
     text-align: left;
 }
 
@@ -212,10 +212,12 @@ background-color: black;
   "header header . p2 p2"
   "p1 p1 . p2 p2"
   "adj1 adj1 . . .";
-  font-size: 1vw;
+  font-size: clamp(1rem,1vw, 1vw);
   font-family: "Nohemi", sans-serif;
   color: #3d0606;
 }
+
+
 
 .sliding_text1, .sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5, .sliding_text6 {
   opacity: 0;
@@ -243,7 +245,7 @@ background-color: black;
 
 .sliding_text2 {
   grid-area: a;
-font-size: 2vw;
+font-size: clamp(1.5rem,2vw, 2vw);
 font-weight: 700;
 overflow: visible;
     /* border: solid 2px #3d0606; */
@@ -294,6 +296,23 @@ overflow: visible;
 .sliding_text6 a:hover {
   background-color: #3d0606;
   color: aliceblue;
+}
+
+@media (max-width: 800px) {
+  .text_container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr 2fr 1fr 1fr;
+    grid-template-areas:
+    "header header"
+    "a btn1"
+    "p1 p1"
+    ". ."
+    "p2 p2"
+    "adj1 adj1";
+    top: -35vh;
+  }
+
+  
 }
 
 .projects{

@@ -9,9 +9,9 @@ const models = [];
 const cdTexts = [
   { title: "Campagne de la Fête de la Laine", description: "Création d'une campagne institutionelle", link:"/pages/project1.html"},
   { title: "VAG Inventary", description: "Site web recueillant l'inventaire des figurines 'VAG'.", link:"/pages/project2.html" },
-  { title: "Court-métrage 'THE MOTH'", description: "Court-métrage", link:"/pages/project3.html"},
+  { title: "'THE MOTH'", description: "Court-métrage", link:"/pages/project3.html"},
   { title: "Affiche NOOMA", description: "Exercice de création de concept et d’affiche rapide", link:"/pages/project4.html" },
-  { title: "Logo", description: "Logo officieux des deuxièmes années du BUT MMI", link:"/pages/project5.html" }
+  { title: "Logo", description: "Création d'un logo fictif pour les deuxièmes années du BUT MMI", link:"/pages/project5.html" }
 ];
 
 let titleEl, descEl, linkEl;
