@@ -2,7 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color:  rgb(248, 237, 231);
+  background-color: rgb(248, 237, 231);
   scrollbar-width: none;
   -webkit-scrollbar-display: none;
 }
@@ -15,33 +15,33 @@ body, html {
 }
 
 h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 0;
-    margin-top: 10vh;
-    color: #801616;
-    font-size: 15vw;
-    text-transform: uppercase;
-    text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 0;
+  margin-top: 10vh;
+  color: #801616;
+  font-size: 15vw;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 h2 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 0;
-    color: #801616;
-    font-size: 2vw;
-    text-align: center;
+  margin: 0;
+  color: #801616;
+  font-size: 2vw;
+  text-align: center;
 }
 
 h3 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 0;
-    color: #801616;
-    font-size: clamp(5rem,8vw, 8vw);
-    text-align: left;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 0;
+  color: #801616;
+  font-size: clamp(5rem, 8vw, 8vw);
+  text-align: left;
 }
 
 nav {
-  position: fixed; /* reste en haut */
+  position: fixed;
   top: 0;
   width: 100%;
   display: flex;
@@ -49,7 +49,7 @@ nav {
   gap: 2rem;
   padding: 1rem;
   z-index: 100;
-  background-color:rgb(248, 237, 231);
+  background-color: rgb(248, 237, 231);
 }
 
 nav a {
@@ -72,10 +72,9 @@ nav a {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0; 
+  z-index: 0;
 }
 
-/* élément au-dessus */
 .bottom_gachapon {
   position: absolute;
   bottom: -40vh;
@@ -89,7 +88,7 @@ nav a {
 
 .handle {
   position: relative;
-  width: clamp(200px,18vw, 18vw);
+  width: clamp(200px, 18vw, 18vw);
   height: auto;
   background-image: url("img/handle_bg.png");
   background-size: contain;
@@ -98,11 +97,11 @@ nav a {
   z-index: 22;
 }
 
-@media (max-width:690px) {
-    .handle{
-      margin-left: auto;
-      margin-right: auto;
-    }
+@media (max-width: 690px) {
+  .handle {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .handle img {
@@ -112,8 +111,8 @@ nav a {
   transition: transform 0.1s linear;
 }
 
-.stickers{
-  width: clamp(200px,20vw, 20vw);
+.stickers {
+  width: clamp(200px, 20vw, 20vw);
   display: flex;
   position: relative;
   left: 50%;
@@ -129,59 +128,62 @@ nav a {
   transition: transform 0.1s linear;
 }
 
-
-
 .gacha_wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
 }
-
-
 
 .gacha_box_hidden {
   position: relative;
   background-color: #f7b968;
   height: 50%;
   z-index: 20;
-  top:0;
-  width: clamp(200px,20vw, 20vw);
+  top: 0;
+  width: clamp(200px, 20vw, 20vw);
   left: 50%;
   transform: translateX(-50%);
 }
-
-
 
 .gacha_box {
   position: relative;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(200px,20vw, 20vw);
+  width: clamp(200px, 20vw, 20vw);
   height: 20vh;
   overflow: hidden;
-background-color: black;
+  background-color: black;
   z-index: 2;
 }
 
-
-
+/* .svg_wrap {
+  position: relative;
+  height: 200vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  background-color: aqua;
+}
 
 .gacha_wrap {
-    position: relative;
-    top:-50vh;
-    width: 100vw;
-    overflow: visible;
-    z-index: 3;
+  position: relative;
+  top: -50vh;
+  width: 100vw;
+  background-color: aquamarine;
+  overflow: visible;
+  z-index: 3;
+  height: 100vh;
+  background-color: aquamarine;
 }
 
 .gacha {
-  position:absolute;
+  position: absolute;
   width: clamp(150px, 20vw, 250px);
-    height: clamp(150px, 20vw, 250px);
-    left: 50%;
-    transform: translateX(-50%);
+  height: clamp(150px, 20vw, 250px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #gacha svg {
@@ -189,15 +191,6 @@ background-color: black;
   height: 100%;
   display: block;
 }
-.svg_wrap{
-  position: relative;
-  height: 100vh;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-}
-
 
 .gacha img {
   position: absolute;
@@ -211,10 +204,15 @@ background-color: black;
 }
 
 .about_me {
-  height: 2500px; 
+  height: 2500px;
   z-index: 0;
   margin-top: 50vh;
   position: relative;
+} */
+
+.svg_wrap {
+  height: 200vh;
+  background-color: aqua;
 }
 
 .text_container {
@@ -222,21 +220,18 @@ background-color: black;
   z-index: 0;
   position: relative;
   top: -6vw;
-  
   gap: 1vw;
   grid-template-columns: 1fr 0.5fr 1fr 1fr 1fr;
   grid-template-rows: 0.25fr 0.25fr 1fr 1fr;
-  grid-template-areas: 
-  "header header a a btn1"
-  "header header . p2 p2"
-  "p1 p1 . p2 p2"
-  "adj1 adj1 . . .";
-  font-size: clamp(1rem,1vw, 1vw);
+  grid-template-areas:
+    "header header a a btn1"
+    "header header . p2 p2"
+    "p1 p1 . p2 p2"
+    "adj1 adj1 . . .";
+  font-size: clamp(1rem, 1vw, 1vw);
   font-family: "Nohemi", sans-serif;
   color: #801616;
 }
-
-
 
 .sliding_text1, .sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5, .sliding_text6 {
   opacity: 0;
@@ -254,7 +249,6 @@ background-color: black;
 
 .sliding_text1 {
   grid-area: header;
-  /* border: solid 2px #801616; */
   margin: auto;
   padding: 0;
   transform: translateY(-100%);
@@ -264,23 +258,20 @@ background-color: black;
 
 .sliding_text2 {
   grid-area: a;
-font-size: clamp(1.5rem,2vw, 2vw);
-font-weight: 700;
-overflow: visible;
-    /* border: solid 2px #801616; */
+  font-size: clamp(1.5rem, 2vw, 2vw);
+  font-weight: 700;
+  overflow: visible;
 }
 
 .sliding_text3 {
   grid-area: p1;
-    /* border: solid 2px #801616; */
 }
 
 .sliding_text4 {
   grid-area: p2;
-    /* border: solid 2px #801616; */
 }
 
-.sliding_text5{
+.sliding_text5 {
   grid-area: adj1;
   display: flex;
   flex-direction: row;
@@ -292,7 +283,7 @@ overflow: visible;
   height: auto;
 }
 
-.sliding_text5 div{
+.sliding_text5 div {
   height: 10vh;
 }
 
@@ -318,30 +309,28 @@ overflow: visible;
 }
 
 @media (max-width: 800px) {
-  .text_container{
+  .text_container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 0.5fr 1fr 2fr 1fr 1fr;
     grid-template-areas:
-    "header header"
-    "a btn1"
-    "p1 p1"
-    ". ."
-    "p2 p2"
-    "adj1 adj1";
+      "header header"
+      "a btn1"
+      "p1 p1"
+      ". ."
+      "p2 p2"
+      "adj1 adj1";
     top: -35vh;
   }
-
-  
 }
 
-.projects{
+.projects {
   height: 1000px;
   position: relative;
 }
 
 #cd_chain_container {
   width: 80%;
-  height: 90vh; /* ajuste selon ton besoin */
+  height: 90vh;
   position: relative;
   overflow: hidden;
   border: solid 2px #801616;
@@ -351,15 +340,14 @@ overflow: visible;
 }
 
 @media (max-width: 800px) {
-  #cd_chain_container{
+  #cd_chain_container {
     width: 110%;
     height: 60vh;
   }
 
-  .projects_text_container{
+  .projects_text_container {
     top: 45vh;
   }
-  
 }
 
 .cd-link {
@@ -378,19 +366,18 @@ overflow: visible;
   z-index: 20;
   left: 60vw;
   bottom: 35vh;
-  /* transform: translateY(-50%); */
   font-family: "Nohemi", sans-serif;
   color: #801616;
   width: 25vw;
 }
 
-.cd_title{
+.cd_title {
   font-weight: 700;
-  font-size: clamp(1.5rem,1.2vw,1.2vw);
+  font-size: clamp(1.5rem, 1.2vw, 1.2vw);
 }
 
 .cd_description {
-    margin-right: 1.5vw;
+  margin-right: 1.5vw;
 }
 
 .temoignages {

@@ -33,10 +33,8 @@ function setAnimationScroll() {
     let runAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: gachaWrap,
-            markers: true,
+            markers: false,
             start:"15% center",
-            pin: ".gacha_wrap",
-            trigger:"svg_wrap",
             end: "+=3600 top",
             scrub: 0.3,
         }
