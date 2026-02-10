@@ -7,10 +7,50 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="projects">
-      <h3>PROJETS</h3>
-      <div id="cd_chain_container"></div>
-    </section>
+    <style>
+button {
+  position: relative;
+  padding: 1em 2em;
+  border-radius: 100px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #51F0ED, #b6fff9);
+  transform: scale(0);
+  transform-origin: var(--x, 50%) var(--y, 50%);
+  transition: transform .4s ease;
+  border-radius: 100px;
+  z-index: 1;
+}
+
+button:hover .fill {
+  transform: scale(1);
+}
+
+button:hover {
+  color: black;
+}
+
+    </style>
+<button class="fancy-btn">
+  <span class="fill"></span>
+  <span class="text">Hover me</span>
+</button>
+
+
 
 
     <!-- GSAP et ScrollTrigger depuis CDN -->
@@ -18,5 +58,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
     
     <script type="module" src="/js/3D.js"></script>
+
+    <script>
+        const btn = document.querySelector(".fancy-btn");
+
+btn.addEventListener("mousemove", (e) => {
+  const rect = btn.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+  btn.style.setProperty("--x", `${x}%`);
+  btn.style.setProperty("--y", `${y}%`);
+});
+
+    </script>
 </body>
 </html>

@@ -7,13 +7,55 @@
     <title>Portfolio</title>
   </head>
   <body>
-    <a href="../index.html">Retour</a>
+    <div class="cd_btn_wrapper">
+          <a class="cd_next fancy-btn" href="../index.html">
+          <span class="fill"></span>
+          <span class="text">Retour</span>
+          </a>
+        </div>
     <div class="header">
       <h1>Logo MMi2</h1>
       <h2>Création d'un logo fictif pour les deuxièmes années du BUT MMI</h2>
     </div>
 
-    <section class="description">
+    <section class="steps">
+      <div class="step">
+        <h3>1/ Le projet</h3>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse optio nulla praesentium est error, quisquam unde eligendi ratione dignissimos deserunt iusto quis numquam nobis cupiditate eaque consequatur quo sunt cum.
+          </p></div>
+      </div>
+      <div class="step">
+        <h3>2/ problématiques</h3>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse optio nulla praesentium est error, quisquam unde eligendi ratione dignissimos deserunt iusto quis numquam nobis cupiditate eaque consequatur quo sunt cum.
+          </p></div>
+      </div>
+      <div class="step">
+        <h3>3/ Recherches</h3>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse optio nulla praesentium est error, quisquam unde eligendi ratione dignissimos deserunt iusto quis numquam nobis cupiditate eaque consequatur quo sunt cum.
+          </p>
+          <div></div>
+        </div>
+      </div>
+      <div class="step">
+        <h3>5/ Résultat</h3>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse optio nulla praesentium est error, quisquam unde eligendi ratione dignissimos deserunt iusto quis numquam nobis cupiditate eaque consequatur quo sunt cum.
+          </p></div>
+      </div>
+    </section>
+    
+    
+    
+    
+<!--     
+    <section class="descriptio">
       <div class="img">
         <div class="small_img">
             <figure>
@@ -44,6 +86,20 @@
         </p>
         
       </div>
-    </section>
+    </section> -->
+
+    <script>
+      document.body.addEventListener("mousemove", (e) => {
+  const btn = e.target.closest(".fancy-btn");
+  if (!btn) return;
+
+  const rect = btn.getBoundingClientRect(); // position exacte du bouton dans le viewport
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+  btn.style.setProperty("--x", `${x}%`);
+  btn.style.setProperty("--y", `${y}%`);
+});
+    </script>
   </body>
 </html>

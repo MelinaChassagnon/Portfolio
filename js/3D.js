@@ -166,8 +166,23 @@ function updateText() {
   titleEl.textContent = text.title;
   descEl.textContent = text.description;
   linkEl.href = text.link;
-  linkEl.textContent = "Voir le projet";
+
+  // Réattacher le blob
+  // Event delegation universelle
+document.body.addEventListener("mousemove", (e) => {
+  const btn = e.target.closest(".fancy-btn");
+  if (!btn) return;
+
+  const rect = btn.getBoundingClientRect(); // position exacte du bouton dans le viewport
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+  btn.style.setProperty("--x", `${x}%`);
+  btn.style.setProperty("--y", `${y}%`);
+});
+
 }
+
 
 // loop
 function animate() {
