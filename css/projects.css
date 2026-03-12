@@ -11,23 +11,25 @@ h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #690f0f;
     font-size: 3vw;
+    font-weight: bold;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
-
+    z-index: 5;
 }
 
 h2, p{
     color: #690f0f;
     font-family: "Nohemi", sans-serif;
     font-weight: 400;
+    z-index: 5;
 }
 
 h2 {
     font-family: 1.5vw;
         margin-left: auto;
     margin-right: auto;
-
+    z-index: 5;
 }
 
 .header {
@@ -35,7 +37,34 @@ h2 {
     flex-direction: column;
     justify-content: center;
     padding: 5vw;
-    background-color: #f1c995;
+    background-image: url("/img/bg_stickers.jpg");
+  background-size: cover;
+  background-color: rgba(247, 185, 104, 50);
+}
+
+.bg_header_txt img {
+    /* background-image: url("../img/white-crinkled-paper-texture-background.jpg");
+    background-size: cover; */
+    transform: rotate(90deg);
+    z-index: 0;
+    height: 510%;
+    width: 100%;
+    position: absolute;
+    top: -5%;
+    object-fit: fill;
+}
+
+.bg_header_txt {
+    display: flex;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    background-color: #690f0f;
+    height: 30vh;
+    width: 70%;
+    border-radius: 10px;
 }
 
 /* .description {
@@ -108,6 +137,20 @@ h3{
     margin-left: 10%;
 }
 
+.desc_img {
+    display: flex;
+    overflow: scroll;
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+    justify-self: center;
+    justify-content: center;
+    gap: 3vw;
+    scrollbar-width: none;
+}
+
+
+
 .cd_btn_wrapper {
   position: relative;
   overflow: hidden;
@@ -122,7 +165,7 @@ h3{
   position: relative;
   padding: 20px;
   border-radius: 20px;
-  background:antiquewhite;
+  background:rgb(248, 237, 231);;
   color: #801616;
   border: 2px solid #801616;
   overflow: hidden;
@@ -151,4 +194,33 @@ h3{
   top: -50%;
   left: -50%;
   z-index: 1;
+}
+
+
+
+/* .fill {
+  position: absolute;
+  inset: 0;
+  background: #801616;
+  border-radius: 50%;
+  transform: scale(0);
+  transform-origin: var(--x, 50%) var(--y, 50%);
+  transition: transform .45s ease;
+  z-index: 1;
+  pointer-events: none;
+} */
+
+
+.fancy-btn:hover .fill {
+  transform: scale(1);
+}
+
+.fancy-btn:hover {
+  color: aliceblue;
+}
+
+.back_btn {
+    position: absolute;
+    margin-left: 2vw;
+    margin-top: 2vw;
 }
