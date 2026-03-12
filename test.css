@@ -8,6 +8,8 @@ body, html {
   -webkit-scrollbar-display: none;
 }
 
+
+
 .top, .bottom{
     height: 100vh;
     margin-bottom: 10vh;
