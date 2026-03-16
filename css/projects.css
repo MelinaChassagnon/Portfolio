@@ -40,13 +40,14 @@ h2 {
     background-image: url("/img/bg_stickers.jpg");
   background-size: cover;
   background-color: rgba(247, 185, 104, 50);
+  z-index: 2;
 }
 
 .bg_header_txt img {
     /* background-image: url("../img/white-crinkled-paper-texture-background.jpg");
     background-size: cover; */
     transform: rotate(90deg);
-    z-index: 0;
+    z-index: 2;
     height: 510%;
     width: 100%;
     position: absolute;
@@ -66,6 +67,41 @@ h2 {
     width: 70%;
     border-radius: 10px;
 }
+
+.bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.moving_bg{
+  position: absolute;
+  top: 30vh;   /* endroit où l'étoile commence */
+  left: 10vw;
+  z-index: 0;
+  will-change: transform;
+}
+
+.moving_bg *{
+  position: absolute;
+  z-index: 0;
+}
+
+.moving_bg img:nth-child(1){
+  
+  height: 50vh;
+  /* width: clamp(100vw,100vw,100px); */
+  left: -60%;
+  transform: translateX(-40%);
+}
+
+.moving_bg img:nth-child(2){
+  height: 80vh;
+  left: 70vw;
+  top: 50vh;
+}
+
 
 /* .description {
     padding: 5vw;

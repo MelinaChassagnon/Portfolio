@@ -7,6 +7,14 @@
     <title>Portfolio</title>
   </head>
   <body>
+<section class="bg">
+<div class="moving_bg">
+    <img src="../img/star1.png" class="star1" alt="">
+    <img src="../img/star1.png" alt="">
+  </div>
+  </section>
+
+
     <div class="cd_btn_wrapper back_btn">
           <a class="cd_next fancy-btn " href="../index.html">
           <span class="fill"></span>
@@ -103,6 +111,14 @@
 
   btn.style.setProperty("--x", `${x}%`);
   btn.style.setProperty("--y", `${y}%`);
+});
+
+const movingBg = document.querySelector(".moving_bg");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  movingBg.style.transform = `translateY(${scrollY * -0.3}px)`;
 });
     </script>
   </body>

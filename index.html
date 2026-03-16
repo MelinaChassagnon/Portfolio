@@ -6,7 +6,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta http-equiv="refresh" content="0; url=unfinished.html" />
+  <!-- <meta http-equiv="refresh" content="0; url=unfinished.html" /> -->
 
   <link rel="stylesheet" href="test.css" />
 
@@ -16,13 +16,19 @@
 
 <body>
 
-
+  <section class="bg">
+<div class="moving_bg">
+    <img src="/img/star1.png" class="star1" alt="">
+    <img src="/img/star1.png" alt="">
+  </div>
+  </section>
 
   <nav>
     <a href="#about_me">À propos</a>
     <a href="#projects">Projets</a>
     <a href="#contact">Contact</a>
   </nav>
+  
   <div class="container">
 
     <section class="home_page">
@@ -117,6 +123,9 @@
     <div id="cd_chain_container" class="cd_chain_container"></div>
   </section>
 
+
+  
+
   <script type="module" src="gachapon.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
@@ -160,7 +169,7 @@
           trigger: ".container",
           start: "top center",
           end: "bottom bottom",
-          markers: true,
+          markers: false,
           scrub: true
         }
       })
@@ -214,7 +223,7 @@
 
     ScrollTrigger.create({
       trigger: ".container",
-      start: "23% center",
+      start: "26% center",
       end: "bottom bottom",
       pin: ".container2",
       markers: false,
@@ -233,6 +242,15 @@
 //     btn.style.setProperty("--y", `${y}%`);
 //   });
 // });
+
+const movingBg = document.querySelector(".moving_bg");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  movingBg.style.transform = `translateY(${scrollY * -0.3}px)`;
+});
+
 
 
   </script>

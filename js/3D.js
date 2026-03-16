@@ -20,11 +20,11 @@ let prevBtn, nextBtn;
 
 // Slots
 const slots = [
-  { position: new THREE.Vector3(-1.2, 0.3, 1.3), rotation: new THREE.Euler(0.2, -0.1, -0.1), scale: 0.8 },
-  { position: new THREE.Vector3(-0.7, 0.5, 0.9), rotation: new THREE.Euler(0.5, -0.1, -0.1), scale: 1 },
-  { position: new THREE.Vector3(0.1, 0.6, 0.6), rotation: new THREE.Euler(-0.1, -0.1, 0.2), scale: 0.8 },
-  { position: new THREE.Vector3(0.7, 0.3, 0), rotation: new THREE.Euler(-0.3, -0.7, -0.1), scale: 0.7 },
-  { position: new THREE.Vector3(1.4, 0.2, -0.3), rotation: new THREE.Euler(0, -0.5, 0.2), scale: 0.6 }
+  { position: new THREE.Vector3(-1.2, 0.3, 1), rotation: new THREE.Euler(0.2, -0.1, -0.1), scale: 0.8 },
+  { position: new THREE.Vector3(-0.7, 0.5, 0.6), rotation: new THREE.Euler(0.5, -0.1, -0.1), scale: 1 },
+  { position: new THREE.Vector3(0.1, 0.6, 0.3), rotation: new THREE.Euler(-0.1, -0.1, 0.2), scale: 0.8 },
+  { position: new THREE.Vector3(0.7, 0.3, -0.3), rotation: new THREE.Euler(-0.3, -0.7, -0.1), scale: 0.7 },
+  { position: new THREE.Vector3(1.4, 0.2, -0.6), rotation: new THREE.Euler(0, -0.5, 0.2), scale: 0.6 }
 ];
 
 let currentSlots = slots.map(s => ({...s}));
@@ -64,7 +64,7 @@ if (prevBtn && nextBtn) {
 
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color("rgb(248, 237, 231)");
+  // scene.background = new THREE.Color("rgb(248, 237, 231)");
 
   camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
   camera.position.set(0, 2, 2);
@@ -87,6 +87,8 @@ if (prevBtn && nextBtn) {
 
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setClearColor(0x000000, 0); // 0 = transparent
+
   container.appendChild(renderer.domElement);
 
   const loader = new GLTFLoader();
@@ -99,7 +101,7 @@ if (prevBtn && nextBtn) {
       models.push(model);
     });
 
-    initScroll();
+    // initScroll();
     updateText();
     animate();
   });
@@ -110,7 +112,7 @@ if (prevBtn && nextBtn) {
 
 
 function getScaleRatio() {
-  return Math.max(container.clientWidth / 1920, 0.55);
+  return Math.max(container.clientWidth / 1920, 0.8);
 }
 
 function applySlot(model, slot) {
@@ -138,13 +140,13 @@ function onResize() {
 }
 
 // scroll
-function initScroll() {
-  container.addEventListener("wheel", (e) => {
-    console.log("Scroll détecté sur la scène ! deltaY:", e.deltaY);
-    scrollDelta += e.deltaY * scrollSpeed;
-    e.preventDefault();
-  }, { passive: false });
-}
+// function initScroll() {
+//   container.addEventListener("wheel", (e) => {
+//     console.log("Scroll détecté sur la scène ! deltaY:", e.deltaY);
+//     scrollDelta += e.deltaY * scrollSpeed;
+//     e.preventDefault();
+//   }, { passive: false });
+// }
 
 // chaine
 function shiftSlots(direction = "down") {
@@ -189,14 +191,14 @@ function animate() {
   requestAnimationFrame(animate);
   const ratio = getScaleRatio();
 
-  const steps = Math.floor(scrollDelta);
-  if (steps !== 0) {
-    for (let s = 0; s < Math.abs(steps); s++) {
-      if (steps > 0) shiftSlots("down");
-      else shiftSlots("up");
-    }
-    scrollDelta -= steps;
-  }
+  // const steps = Math.floor(scrollDelta);
+  // if (steps !== 0) {
+  //   for (let s = 0; s < Math.abs(steps); s++) {
+  //     if (steps > 0) shiftSlots("down");
+  //     else shiftSlots("up");
+  //   }
+  //   scrollDelta -= steps;
+  // }
 
   models.forEach((model, i) => {
     const targetSlot = currentSlots[i];
