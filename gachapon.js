@@ -38,7 +38,7 @@ const balls = [];
 function getBallSize() {
   const baseWidth = 1920;
   const maxSize = 5.5;
-  const minSize = 2;
+  const minSize = 1.5;
 
   const scale = window.innerWidth / baseWidth;
 
