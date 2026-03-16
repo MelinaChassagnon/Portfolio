@@ -142,12 +142,28 @@ nav a {
   width: 100%;
   height: clamp( 400px, 60vh, 60vh);
   
-    background-image: url("/img/bg_stickers.jpg");
+  background-image: url("/img/bg_stickers.jpg");
   background-size: cover;
   background-color: rgba(247, 185, 104, 50);
   z-index: 3;
   overflow: hidden;
 }
+
+.gacha_box_hidden {
+  position: relative;
+  height: 43vh;
+  z-index: 20;
+  bottom: -90vh;
+  width: clamp(200px, 20vw, 20vw);
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 
 .handle {
@@ -200,19 +216,8 @@ nav a {
   /* background-color: aliceblue; */
 }
 
-.gacha_box_hidden {
-  position: relative;
-  height: 43vh;
-  z-index: 20;
-  bottom: -83vh;
-  width: clamp(200px, 20vw, 20vw);
-  left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
 
 .gacha_box_hidden img {
   width: 100vw;
@@ -246,7 +251,7 @@ nav a {
   position: absolute;
   top: 45%;
   transform: translateY(-50%);
-  gap: 0vw;
+  gap: 1vw;
   grid-template-columns: 1fr 0.5fr 1fr 1fr 1fr;
   grid-template-rows: 0.25fr 0.25fr 1fr 1fr;
   grid-template-areas:
@@ -306,11 +311,12 @@ nav a {
 
 .sliding_text5 img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
 .sliding_text5 div {
-  height: 10vh;
+  height: 100%;
 }
 
 .sliding_text6 {
