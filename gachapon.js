@@ -37,16 +37,20 @@ const balls = [];
 // Calcule la taille des PNG selon la largeur de l'écran
 function getBallSize() {
   const baseWidth = 1920;
-  const maxSize = 4.5;
-  const minSize = 3;
+  const maxSize = 5.5;
+  const minSize = 2;
 
-  if (window.innerWidth > 768) {
-    return maxSize; // desktop / laptop = taille fixe
-  }
+  const scale = window.innerWidth / baseWidth;
 
-  const size = maxSize * (window.innerWidth / baseWidth);
-  return Math.max(size, minSize);
+  // limite le scale pour les laptops
+  const correctedScale = Math.max(scale, 0.55);
+
+  return Math.max(maxSize * correctedScale, minSize);
 }
+
+
+
+
 
 
 // Vérifie chevauchement
