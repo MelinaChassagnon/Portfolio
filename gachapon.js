@@ -37,11 +37,17 @@ const balls = [];
 // Calcule la taille des PNG selon la largeur de l'écran
 function getBallSize() {
   const baseWidth = 1920;
-  const maxSize = 6.5;
+  const maxSize = 4.5;
   const minSize = 3;
+
+  if (window.innerWidth > 768) {
+    return maxSize; // desktop / laptop = taille fixe
+  }
+
   const size = maxSize * (window.innerWidth / baseWidth);
   return Math.max(size, minSize);
 }
+
 
 // Vérifie chevauchement
 function isOverlap(x, y, size, others) {
