@@ -40,10 +40,12 @@ function getBallSize() {
   const maxSize = 4.5;
   const minSize = 2.5;
 
-  const scale = window.innerWidth / baseWidth;
+  const correctedWidth = window.innerWidth * window.devicePixelRatio;
+  const scale = correctedWidth / baseWidth;
 
   return Math.max(Math.min(maxSize * scale, maxSize), minSize);
 }
+
 
 
 
