@@ -35,6 +35,7 @@ h2 {
 .header {
     display: flex;
     flex-direction: column;
+    position: relative;
     justify-content: center;
     padding: 5vw;
     background-image: url("/img/bg_stickers.jpg");
@@ -157,10 +158,6 @@ h3{
     margin: 0;
 }
 
-.steps{
-    height: 1000vh;
-
-}
 
 .step{
     margin-top: 10vh;
@@ -175,16 +172,36 @@ h3{
 
 .desc_img {
     display: flex;
-    overflow: scroll;
-    width: 100vw;
+    overflow-x: auto;
+    width: 100%;
     height: 70vh;
     position: relative;
-    justify-self: center;
+
     justify-content: center;
     gap: 3vw;
-    scrollbar-width: none;
+
+    margin: 0 auto;
+    scrollbar-width: thin;
+  scrollbar-color: #801616 transparent;
 }
 
+
+.desc_img::-webkit-scrollbar {
+  height: 8px;
+}
+
+.desc_img::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.desc_img::-webkit-scrollbar-thumb {
+  background: #801616;
+  border-radius: 10px;
+}
+
+.desc_img::-webkit-scrollbar-thumb:hover {
+  background: #5c0d0d;
+}
 
 
 .cd_btn_wrapper {
@@ -207,7 +224,7 @@ h3{
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
-
+  z-index: 3;
   font-weight: 400;
   font-size: 1.5vw;
 }
