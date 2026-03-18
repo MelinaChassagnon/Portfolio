@@ -236,16 +236,45 @@ nav a {
 }
 
 .gacha svg {
-  position: absolute;
+  /* position: absolute; */
   width: clamp(150px, 20vw, 250px);
   height: clamp(150px, 20vw, 250px);
-  left: 50%;
+  /* left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
-.text_container {
-  /* background-color:cadetblue; */
+
+.gacha_wrap {
+  display: flex;
+  margin-left:5vw;
+  margin-right: 5vw;
+  /* width: 80vw; */
+  justify-content: center;
+}
+
+.abt_me1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.abt_me2 {
+  display: flex;
+  justify-content: center;
+    /* width: 80vw; */
+}
+
+.sliding_text3,
+.sliding_text4 {
+  flex: 1;
+}
+
+.gacha {
+  margin: 2vw;
+  transform: translateY(-10vh);
+}
+
+/* .text_container {
   display: grid;
   z-index: 0;
   position: absolute;
@@ -256,9 +285,9 @@ nav a {
   grid-template-rows: 0.25fr 0.25fr 1fr 1fr;
   grid-template-areas:
     "header header a a btn1"
-    "header header . p2 p2"
-    "p1 p1 . p2 p2"
-    "adj1 adj1 . . .";
+    "header header gacha p2 p2"
+    "p1 p1 gacha p2 p2"
+    "adj1 adj1 gacha . .";
   font-size: clamp(1rem, 1vw, 1vw);
   font-family: "Nohemi", sans-serif;
   color: #801616;
@@ -268,6 +297,10 @@ nav a {
   opacity: 0;
   overflow: hidden;
   padding-left: 3vw;
+}
+
+.gacha {
+  grid-area: gacha;
 }
 
 .sliding_text2, .sliding_text4, .sliding_text6 {
@@ -326,20 +359,6 @@ nav a {
   align-items: center;
 }
 
-/* .sliding_text6 a {
-  font-weight: 400;
-  font-size: 1.5vw;
-  padding: 20px;
-  border-radius: 20px;
-  border: solid 2px #801616;
-  transition: all 0.2s ease;
-}
-
-.sliding_text6 a:hover {
-  background-color: #801616;
-  color: aliceblue;
-} */
-
 @media (max-width: 800px) {
   .text_container {
     grid-template-columns: 1fr 1fr;
@@ -348,12 +367,12 @@ nav a {
       "header header"
       "a btn1"
       "p1 p1"
-      ". ."
+      "gacha gacha"
       "p2 p2"
       "adj1 adj1";
     gap: -10px;
   }
-}
+} */
 
 
 .bottom{

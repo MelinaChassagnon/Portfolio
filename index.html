@@ -17,10 +17,10 @@
 <body>
 
   <section class="bg">
-<div class="moving_bg">
-    <img src="/img/star1.png" class="star1" alt="">
-    <img src="/img/star1.png" alt="">
-  </div>
+    <div class="moving_bg">
+      <img src="/img/star1.png" class="star1" alt="">
+      <img src="/img/star1.png" alt="">
+    </div>
   </section>
 
   <nav>
@@ -28,7 +28,7 @@
     <a href="#projects">Projets</a>
     <a href="#contact">Contact</a>
   </nav>
-  
+
   <div class="container">
 
     <section class="home_page">
@@ -51,40 +51,49 @@
             <div class="gacha_box"></div>
           </div>
         </div>
-        
+
         <div class="gacha_box_hidden"> <img src="/img/bg_stickers.jpg" alt=""></div>
       </section>
 
       <div class="container2">
         <div class="gacha_wrap">
-          <div id="gacha" class="gacha"></div>
+
           <div class="text_container">
-            <h3 class="sliding_text1">ABOUT ME</h3>
-            <p class="sliding_text2">
-              Salut ! Moi c'est Mélina, j'ai 19 ans.
-            </p>
-            <p class="sliding_text3">
+            <div class="abt_me1">
+              <h3 class="sliding_text1">ABOUT ME</h3>
+              <p class="sliding_text2">
+                Salut ! Moi c'est Mélina, j'ai 19 ans.
+              </p>
+              <div class="sliding_text6">
+                <a href="#contacts" class="fancy-btn">
+                  <span class="fill"></span>
+                  <span class="text">CONTACTS</span>
+                </a>
+              </div>
+            </div>
+            <div class="abt_me2">
+              <p class="sliding_text3">
               Actuellement étudiante en BUT des Métiers du Multimédia et de
               l'Internet, je suis passionnée d'art et de graphisme. J'aime
               apporter ma créativité aux projets du numérique, comme ceux de
               développement web et de jeux vidéos.
             </p>
-            <p class="sliding_text4">
+              <div id="gacha" class="gacha"></div>
+              <p class="sliding_text4">
               Mon travail combine de nombreux domaines : le développement web, le graphisme, l'illustration et la
               photographie.
               Animée par l'envie d'apprendre, je cherche à développer continuellement de nouvelles compétences !
             </p>
-            <div class="sliding_text5">
+            </div>
+
+            
+            
+            <!-- <div class="sliding_text5">
               <div><img src="img/stickers/creativite.png" alt="créativité"></div>
               <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
               <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
-            </div>
-            <div class="sliding_text6">
-              <a href="#contacts" class="fancy-btn">
-                <span class="fill"></span>
-                <span class="text">CONTACTS</span>
-              </a>
-            </div>
+            </div> -->
+
           </div>
         </div>
       </div>
@@ -100,31 +109,31 @@
       <p class="cd_description"></p>
       <div class="cd_btn_wrapper">
         <a class="cd_link fancy-btn">
-        <span class="fill"></span>
-        <span class="text">VOIR LE PROJET</span>
-      </a>
+          <span class="fill"></span>
+          <span class="text">VOIR LE PROJET</span>
+        </a>
       </div>
-      </div>
-      <div class="cd_nav">
-        <div class="cd_btn_wrapper">
-          <a class="cd_prev fancy-btn">
+    </div>
+    <div class="cd_nav">
+      <div class="cd_btn_wrapper">
+        <a class="cd_prev fancy-btn">
           <span class="fill"></span>
           <span class="text">←</span></a>
-        </div>
-        <div class="cd_btn_wrapper">
-          <a class="cd_next fancy-btn">
+      </div>
+      <div class="cd_btn_wrapper">
+        <a class="cd_next fancy-btn">
           <span class="fill"></span>
           <span class="text">→</span>
-          </a>
-        </div>
-        
+        </a>
       </div>
-    
+
+    </div>
+
     <div id="cd_chain_container" class="cd_chain_container"></div>
   </section>
 
 
-  
+
 
   <script type="module" src="gachapon.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
@@ -233,23 +242,23 @@
       ScrollTrigger.refresh();
     });
 
-// const buttons = document.querySelectorAll(".fancy-btn");
-// buttons.forEach(btn => {
-//   btn.addEventListener("mousemove", (e) => {
-//     const x = (e.offsetX / btn.offsetWidth) * 100;
-//     const y = (e.offsetY / btn.offsetHeight) * 100;
-//     btn.style.setProperty("--x", `${x}%`);
-//     btn.style.setProperty("--y", `${y}%`);
-//   });
-// });
+    // const buttons = document.querySelectorAll(".fancy-btn");
+    // buttons.forEach(btn => {
+    //   btn.addEventListener("mousemove", (e) => {
+    //     const x = (e.offsetX / btn.offsetWidth) * 100;
+    //     const y = (e.offsetY / btn.offsetHeight) * 100;
+    //     btn.style.setProperty("--x", `${x}%`);
+    //     btn.style.setProperty("--y", `${y}%`);
+    //   });
+    // });
 
-const movingBg = document.querySelector(".moving_bg");
+    const movingBg = document.querySelector(".moving_bg");
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
 
-  movingBg.style.transform = `translateY(${scrollY * -0.3}px)`;
-});
+      movingBg.style.transform = `translateY(${scrollY * -0.3}px)`;
+    });
 
 
 
