@@ -381,6 +381,21 @@ nav a {
   background: transparent;
 }
 
+.cd_nav{
+  /* background-color: blue; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  bottom: -75vh;
+  gap: 10px;
+  z-index: 100;
+}
+/* 
+.cd_nav span {
+  font-size: 1rem;
+} */
+
 @media (max-width: 800px) {
   #cd_chain_container {
     width: 110%;
@@ -389,6 +404,12 @@ nav a {
 
   .projects_text_container {
     top: 45vh;
+  }
+
+  .cd_nav{
+    bottom: -65vh;
+    justify-self: left;
+    margin-left: 10vw;
   }
 }
 
@@ -416,16 +437,7 @@ nav a {
 }
 
 
-.cd_nav{
-  /* background-color: blue; */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  justify-self: center;
-  bottom: -65vh;
-  gap: 10px;
-  z-index: 100;
-}
+
 
 .cd_title {
   font-weight: 700;
@@ -437,28 +449,13 @@ nav a {
 }
 
 
-
-/* .sliding_text6 a {
-  font-weight: 400;
-  font-size: 1.5vw;
-  padding: 20px;
-  border-radius: 20px;
-  border: solid 2px #801616;
-  transition: all 0.2s ease;
-}
-
-.sliding_text6 a:hover {
-  background-color: #801616;
-  color: aliceblue;
-} */
-
 .cd_btn_wrapper {
   position: relative;
   overflow: hidden;
   width: fit-content;
-  height: max-content;
-  padding-top: 21px;
-  padding-bottom: 21px;
+  height: auto;
+  /* padding-top: 21px;
+  padding-bottom: 21px; */
   border-radius: 20px;
 }
 
@@ -472,9 +469,13 @@ nav a {
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
+  display: inline-block;
+
+  width: max-content;
+  white-space: normal;
 
   font-weight: 400;
-  font-size: 1.5vw;
+  font-size: clamp(1rem, 1.5vw, 1.5vw);
 }
 
 .text {
