@@ -22,13 +22,14 @@ body, html {
 }
 
 .container2 {
-    height: 70vh;
+    height: 90vh;
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    top: 70vh;
+    top: 60vh;
     z-index: 5;
+    /* background-color: aqua; */
 }
 
 .bg{
@@ -236,24 +237,159 @@ nav a {
 }
 
 .gacha svg {
-  /* position: absolute; */
+  position: absolute;
   width: clamp(150px, 20vw, 250px);
   height: clamp(150px, 20vw, 250px);
-  /* left: 50%;
+  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
 }
 
 
+
+
 .gacha_wrap {
-  display: flex;
-  margin-left:5vw;
+  margin-left:1vw;
   margin-right: 5vw;
+  height: 90vh;
   /* width: 80vw; */
   justify-content: center;
 }
 
-.abt_me1 {
+.sliding_text1 {
+  overflow: hidden;
+  padding: 2vw;
+}
+
+.sliding_text1 span {
+  display: inline-block;
+  transform: translateY(120%);
+  opacity: 0;
+}
+
+
+.text_group {
+  text-align: left; /* Centre les spans dans le paragraphe */
+  line-height: 1.5;   /* Espace entre les deux lignes */
+  top: 0vh;
+  padding: 2vw;
+  right: 10%;
+  /* transform: translateX(-50%); */
+  position: absolute;
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-weight: bold;
+
+}
+
+.sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5 {
+  position: relative;
+  display: inline-flex; /* Très important : le highlight colle au texte */
+  align-items: center;
+  justify-content: center;
+    font-family: 'Nohemi', sans-serif;
+
+  color: #801616;
+
+}
+/* Le conteneur parent : on garde le positionnement mais on vire le flex */
+.sliding_text4, .sliding_text5 {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 30vw;
+  text-align: left;
+  z-index: 10;
+  display: block; /* On s'assure qu'il n'est PAS en flex */
+
+  line-height: 0.9;
+  margin-left: 2vw;
+}
+
+
+.sliding_text5 {
+  right: 10%;
+}
+
+/* LA CORRECTION : Chaque ligne doit être un "table" pour coller au texte */
+.line {
+  display: table !important; /* C'est CA qui empêche le gros bloc */
+  position: relative !important;
+  margin-bottom: 6px;
+  overflow: hidden;
+  width: auto;
+}
+
+.line-text {
+  display: block;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.line-highlight {
+  position: absolute;
+  inset: 0;
+  background: #801616;
+  z-index: 2;
+  clip-path: inset(0 100% 0 0);
+}
+.sliding_text2 .text, .sliding_text3 .text {
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight {
+  position: absolute;
+  inset: 0;
+  background: #801616;
+  z-index: 2;
+  clip-path: inset(0 100% 0 0);
+  pointer-events: none;
+}
+
+/* 
+.sliding_text2, .sliding_text3 {
+  font-family: 'nohemi', sans-serif;
+  color: #801616;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  display: inline-flex;
+
+}
+
+.sliding_text2 {
+  top: 44%;
+  left: 20%;
+}
+
+.sliding_text3 {
+  left: 20%;
+  top: 50%;
+transform: translateY(-50%);
+}
+
+.sliding_text2 .text, .sliding_text3 .text{
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #801616;
+  z-index: 2;
+  clip-path: inset(0 100% 0 0); 
+} */
+
+
+
+/* .abt_me1 {
   display: flex;
   flex-direction: row;
 }
@@ -261,18 +397,49 @@ nav a {
 .abt_me2 {
   display: flex;
   justify-content: center;
-    /* width: 80vw; */
+} */
+
+
+
+/* .sliding_text1 {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.sliding_text2,
+.sliding_text4,
+.sliding_text6 {
+  transform: translateX(-100px);
+  opacity: 0;
 }
 
 .sliding_text3,
+.sliding_text5 {
+  transform: translateX(100px);
+  opacity: 0;
+} */
+
+
+
+
+
+
+
+
+
+/* .sliding_text3,
 .sliding_text4 {
   flex: 1;
-}
+} */
 
-.gacha {
+/* .gacha {
   margin: 2vw;
   transform: translateY(-10vh);
-}
+} */
+
+
+
+
 
 /* .text_container {
   display: grid;
@@ -293,7 +460,7 @@ nav a {
   color: #801616;
 }
 
-.sliding_text1, .sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5, .sliding_text6 {
+/* .sliding_text1, .sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5, .sliding_text6 {
   opacity: 0;
   overflow: hidden;
   padding-left: 3vw;
@@ -357,9 +524,11 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-@media (max-width: 800px) {
+
+
+/* @media (max-width: 800px) {
   .text_container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 0.5fr 1fr 2fr 1fr 0.5fr;
@@ -372,8 +541,8 @@ nav a {
       "adj1 adj1";
     gap: -10px;
   }
-} */
-
+}  */
+  
 
 .bottom{
   height: 100vh;
@@ -538,4 +707,17 @@ nav a {
 
 .fancy-btn:hover {
   color: aliceblue;
+}
+
+
+@font-face {
+  font-family: "Nohemi";
+  src: url(fonts/Nohemi-Medium.woff2);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url(fonts/Nohemi-Bold.woff2);
+  font-weight: 700;
 }
