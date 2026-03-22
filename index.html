@@ -68,57 +68,38 @@
 
           <p class="text_group">
             <span class="sliding_text2">
-            <span class="text">Salut !</span>
-            <span class="highlight"></span>
+              <span class="text">Salut !</span>
+              <span class="highlight"></span>
             </span>
             <br>
-          <span class="sliding_text3">
-            <span class="text">Moi c'est Mélina, j'ai 19 ans.</span>
-            <span class="highlight"></span>
-          </span>
+            <span class="sliding_text3">
+              <span class="text">Moi c'est Mélina, j'ai 19 ans.</span>
+              <span class="highlight"></span>
+            </span>
           </p>
 
           <p class="sliding_text4">
             Actuellement étudiante en BUT des Métiers du Multimédia et de
-              l'Internet, je suis passionnée d'art et de graphisme. J'aime
-              apporter ma créativité aux projets du numérique, comme ceux de
-              développement web et de jeux vidéos.
+            l'Internet, je suis passionnée d'art et de graphisme. J'aime
+            apporter ma créativité aux projets du numérique, comme ceux de
+            développement web et de jeux vidéos.
             <span class="highlight"></span>
           </p>
 
           <p class="sliding_text5">
             Mon travail combine de nombreux domaines : le développement web, le graphisme, l'illustration et la
-              photographie.
-              Animée par l'envie d'apprendre, je cherche à développer continuellement de nouvelles compétences !
+            photographie.
+            Animée par l'envie d'apprendre, je cherche à développer continuellement de nouvelles compétences !
             <span class="highlight"></span>
           </p>
-          
-          <!-- <div class="sliding_text6">
-              <a href="#contacts" class="fancy-btn">
-                <span class="fill"></span>
-                <span class="text">CONTACTS</span>
-              </a>
-            </div>
-            <p class="sliding_text3">
-              Actuellement étudiante en BUT des Métiers du Multimédia et de
-              l'Internet, je suis passionnée d'art et de graphisme. J'aime
-              apporter ma créativité aux projets du numérique, comme ceux de
-              développement web et de jeux vidéos.
-            </p>
-
-            <p class="sliding_text4">
-              Mon travail combine de nombreux domaines : le développement web, le graphisme, l'illustration et la
-              photographie.
-              Animée par l'envie d'apprendre, je cherche à développer continuellement de nouvelles compétences !
-            </p> -->
 
 
 
-          <!-- <div class="sliding_text5">
+          <div class="sliding_text7">
               <div><img src="img/stickers/creativite.png" alt="créativité"></div>
               <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
               <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
-            </div> -->
+            </div>
 
           <!-- </div> -->
         </div>
@@ -171,12 +152,15 @@
   </div>
 
   <section class="bottom">
-    <h3>PROJETS</h3>
+    <h3 class="sliding_text6">
+      <span>P</span><span>R</span><span>O</span><span>J</span><span>E</span><span>T</span><span>S</span>
+    </h3>
     <p>tout</p>
     <p>illustrations</p>
     <p>photographie</p>
     <div class="projects_text_container">
       <p class="cd_title"></p>
+      <p class="cd_tags"></p>
       <p class="cd_description"></p>
       <div class="cd_btn_wrapper">
         <a class="cd_link fancy-btn">
@@ -235,96 +219,152 @@
     }
 
     loadSVG();
-let text4, text5; // On déclare les deux variables de split en haut
-let runAnimation; 
+    let text4, text5; // On déclare les deux variables de split en haut
+    let runAnimation;
 
-function setAnimationScroll() {
-  if (runAnimation) runAnimation.kill();
-  if (text4) text4.revert();
-  if (text5) text5.revert(); // Nettoyage du texte 5
-  
-  const target4 = document.querySelector('.sliding_text4');
-  const target5 = document.querySelector('.sliding_text5'); // Cible du texte 5
-  const svg = document.querySelector("#gacha svg");
-  
-  if (!target4 || !target5 || !svg) return;
+    function setAnimationScroll() {
+      if (runAnimation) runAnimation.kill();
+      if (text4) text4.revert();
+      if (text5) text5.revert(); // Nettoyage du texte 5
 
-  const top = svg.querySelector("#top");
-  const perso = svg.querySelector("#perso");
-  const bottom = svg.querySelector("#bottom");
+      const target4 = document.querySelector('.sliding_text4');
+      const target5 = document.querySelector('.sliding_text5'); // Cible du texte 5
+      const svg = document.querySelector("#gacha svg");
 
-  // --- RESET ---
-  gsap.set([top, bottom, perso], { clearProps: "all" }); 
-  gsap.set(".sliding_text2 .text, .sliding_text3 .text", { opacity: 0 });
+      if (!target4 || !target5 || !svg) return;
 
-  // --- SPLIT TEXT 4 ---
-  text4 = new SplitType(target4, { types: 'lines' });
-  text4.lines.forEach(line => {
-    const content = line.innerHTML;
-    line.innerHTML = `<span class="line-text" style="opacity:0; display:block;">${content}</span><span class="line-highlight"></span>`;
-  });
+      const top = svg.querySelector("#top");
+      const perso = svg.querySelector("#perso");
+      const bottom = svg.querySelector("#bottom");
 
-  // --- SPLIT TEXT 5 (AJOUT) ---
-  text5 = new SplitType(target5, { types: 'lines' });
-  text5.lines.forEach(line => {
-    const content = line.innerHTML;
-    line.innerHTML = `<span class="line-text" style="opacity:0; display:block;">${content}</span><span class="line-highlight"></span>`;
-  });
+      // --- RESET ---
+      gsap.set([top, bottom, perso], { clearProps: "all" });
+      gsap.set(".sliding_text2 .text, .sliding_text3 .text", { opacity: 0 });
 
-  gsap.registerPlugin(ScrollTrigger);
+      // --- SPLIT TEXT 4 ---
+      text4 = new SplitType(target4, { types: 'lines' });
+      text4.lines.forEach(line => {
+        const content = line.innerHTML;
+        line.innerHTML = `<span class="line-text" style="opacity:0; display:block;">${content}</span><span class="line-highlight"></span>`;
+      });
 
-  runAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".container",
-      start: "30% center",
-      end: "bottom bottom",
-      scrub: true,
-      invalidateOnRefresh: true 
+      // --- SPLIT TEXT 5 (AJOUT) ---
+      text5 = new SplitType(target5, { types: 'lines' });
+      text5.lines.forEach(line => {
+        const content = line.innerHTML;
+        line.innerHTML = `<span class="line-text" style="opacity:0; display:block;">${content}</span><span class="line-highlight"></span>`;
+      });
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      runAnimation = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".container",
+          start: "30% center",
+          end: "bottom bottom",
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+
+      runAnimation
+        .to(top, { 
+          transformOrigin: "70% 100%", 
+          scale: 0.7, 
+          rotate: 45, 
+          opacity: 0, 
+          duration: 2 }, 2)
+        .to(bottom, { 
+          transformOrigin: "20% 20%", 
+          scale: 0.7, 
+          rotate: 45, 
+          opacity: 0, 
+          y: 200, 
+          duration: 2 }, 2)
+        .to(perso, { 
+          transformOrigin: "50% 50%", 
+          scale: 1.5, 
+          duration: 2 }, 2)
+
+        .fromTo(".sliding_text1 span", { 
+          y: "120%", 
+          opacity: 0 }, 
+          { y: "0%", 
+          opacity: 1, 
+          stagger: 0.08, 
+          duration: 1, 
+          ease: "power4.out" }, 2.5)
+
+        .to(".sliding_text2 .highlight", { 
+          clipPath: "inset(0 0% 0 0)", 
+          duration: 0.3, 
+          ease: "none" }, 3.7)
+        .set(".sliding_text2 .text", { 
+          opacity: 1 }, 4)
+        .to(".sliding_text2 .highlight", { 
+          clipPath: "inset(0 0% 0 100%)", 
+          duration: 0.3, 
+          ease: "none" }, 4.3)
+
+        .to(".sliding_text3 .highlight", { 
+          clipPath: "inset(0 0% 0 0)", 
+          duration: 0.3, 
+          ease: "none" }, 4.3)
+        .set(".sliding_text3 .text", { 
+          opacity: 1 }, 4.6)
+        .to(".sliding_text3 .highlight", { 
+          clipPath: "inset(0 0% 0 100%)", 
+          duration: 0.3, 
+          ease: "none" }, 4.9)
+
+        .to(".sliding_text4 .line-highlight", { 
+          clipPath: "inset(0 0% 0 0)", 
+          duration: 0.3, 
+          ease: "none", 
+          stagger: 0.3 }, 4.7)
+        .set(".sliding_text4 .line-text", { 
+          opacity: 1, 
+          stagger: 0.3 }, 4.9)
+        .to(".sliding_text4 .line-highlight", { 
+          clipPath: "inset(0 0% 0 100%)", 
+          duration: 0.3, 
+          ease: "none", 
+          stagger: 0.3 }, 4.87)
+
+        .to(".sliding_text5 .line-highlight", { 
+          clipPath: "inset(0 0% 0 0)", 
+          duration: 0.3, 
+          ease: "none", 
+          stagger: 0.3 }, 7.3)
+        .set(".sliding_text5 .line-text", { 
+          opacity: 1, 
+          stagger: 0.3 }, 7.5)
+        .to(".sliding_text5 .line-highlight", { 
+          clipPath: "inset(0 0% 0 100%)", 
+          duration: 0.3, 
+          ease: "none", 
+          stagger: 0.3 }, 7.47)
+
+        .fromTo(".sliding_text7 div img",{
+          scale : 0
+        }, {
+          scale : 1,
+          duration : 1
+        }, 7.6);
     }
-  });
 
-  runAnimation
-    // Animation Gacha
-    .to(top, { transformOrigin: "70% 100%", scale: 0.7, rotate: 45, opacity: 0, duration: 2 }, 2)
-    .to(bottom, { transformOrigin: "20% 20%", scale: 0.7, rotate: 45, opacity: 0, y: 200, duration: 2 }, 2)
-    .to(perso, { transformOrigin: "50% 50%", scale: 1.5, duration: 2 }, 2)
+    // Lancement
+    window.addEventListener("load", setAnimationScroll);
 
-    // TEXT 1
-    .fromTo(".sliding_text1 span", { y: "120%", opacity: 0 }, { y: "0%", opacity: 1, stagger: 0.08, duration: 1, ease: "power4.out" }, 2)
-
-    // TEXT 2
-    .to(".sliding_text2 .highlight", { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "none" }, 3.2)
-    .set(".sliding_text2 .text", { opacity: 1 }, 3.5)
-    .to(".sliding_text2 .highlight", { clipPath: "inset(0 0% 0 100%)", duration: 0.3, ease: "none" }, 3.8) 
-
-    // TEXT 3
-    .to(".sliding_text3 .highlight", { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "none" }, 3.8)
-    .set(".sliding_text3 .text", { opacity: 1 }, 4.1)
-    .to(".sliding_text3 .highlight", { clipPath: "inset(0 0% 0 100%)", duration: 0.3, ease: "none" }, 4.4) 
-
-    // TEXT 4 (Lignes)
-    .to(".sliding_text4 .line-highlight", { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "none", stagger: 0.3 }, 4.2)
-    .set(".sliding_text4 .line-text", { opacity: 1, stagger: 0.3 }, 4.4) 
-    .to(".sliding_text4 .line-highlight", { clipPath: "inset(0 0% 0 100%)", duration: 0.3, ease: "none", stagger: 0.3 }, 4.37)
-
-    // TEXT 5 (AJOUT : On part de 4.8 pour laisser le temps au texte 4 de finir)
-    .to(".sliding_text5 .line-highlight", { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "none", stagger: 0.3 }, 6.8)
-    .set(".sliding_text5 .line-text", { opacity: 1, stagger: 0.3 }, 7) 
-    .to(".sliding_text5 .line-highlight", { clipPath: "inset(0 0% 0 100%)", duration: 0.3, ease: "none", stagger: 0.3 }, 6.97);
-}
-
-// Lancement
-window.addEventListener("load", setAnimationScroll);
-
-let resizeTimer;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(setAnimationScroll, 250);
-});
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setAnimationScroll, 250);
+    });
 
 
-// Pour que ça s'active tout seul au changement de taille :
-window.addEventListener("resize", setAnimationScroll);
+    // Pour que ça s'active tout seul au changement de taille :
+    window.addEventListener("resize", setAnimationScroll);
 
     ScrollTrigger.create({
       trigger: ".container",
@@ -338,15 +378,26 @@ window.addEventListener("resize", setAnimationScroll);
       ScrollTrigger.refresh();
     });
 
-    // const buttons = document.querySelectorAll(".fancy-btn");
-    // buttons.forEach(btn => {
-    //   btn.addEventListener("mousemove", (e) => {
-    //     const x = (e.offsetX / btn.offsetWidth) * 100;
-    //     const y = (e.offsetY / btn.offsetHeight) * 100;
-    //     btn.style.setProperty("--x", `${x}%`);
-    //     btn.style.setProperty("--y", `${y}%`);
-    //   });
-    // });
+
+
+
+
+     runAnimation2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".bottom",
+          start: "top center",
+          end: "bottom bottom",
+          scrub: true
+        }
+      });
+
+      runAnimation2
+        
+
+        .fromTo(".sliding_text6 span", { y: "120%", opacity: 0 }, { y: "0%", opacity: 1, stagger: 0.08, duration: 1, ease: "power4.out" }, 2); 
+
+
+
 
     const movingBg = document.querySelector(".moving_bg");
 

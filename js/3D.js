@@ -6,14 +6,14 @@ let container;
 const models = [];
 
 const cdTexts = [
-  { title: "Campagne de la Fête de la Laine", description: "Création d'une campagne institutionelle", link:"/pages/project1.html"},
-  { title: "VAG Inventary", description: "Site web recueillant l'inventaire des figurines 'VAG'.", link:"/pages/project2.html" },
-  { title: "'THE MOTH'", description: "Court-métrage", link:"/pages/project3.html"},
-  { title: "Affiche NOOMA", description: "Exercice de création de concept et d’affiche rapide", link:"/pages/project4.html" },
-  { title: "Logo", description: "Création d'un logo fictif pour les deuxièmes années du BUT MMI", link:"/pages/project5.html" }
+  { title: "Campagne de la Fête de la Laine", tags: "Graphisme // Design UI/UX" ,description: "Création d'une campagne institutionelle", link:"/pages/project1.html"},
+  { title: "VAG Inventory", tags: "Graphisme // Design UI/UX // 3D // Développement Web", description: "Site web recueillant l'inventaire des figurines 'VAG'.", link:"/pages/project2.html" },
+  { title: "'THE MOTH'", tags:" Écriture // Tournage // Montage", description: "Court-métrage", link:"/pages/project3.html"},
+  { title: "Affiche NOOMA",tags:"Graphisme", description: "Exercice de création de concept et d’affiche rapide", link:"/pages/project4.html" },
+  { title: "Logo", tags:"Graphisme", description: "Création d'un logo fictif pour les deuxièmes années du BUT MMI", link:"/pages/project5.html" }
 ];
 
-let titleEl, descEl, linkEl;
+let titleEl, tagsEl, descEl, linkEl;
 let prevBtn, nextBtn;
 
 const slots = [
@@ -37,6 +37,7 @@ function init() {
 
   titleEl = document.querySelector(".cd_title");
   descEl = document.querySelector(".cd_description");
+  tagsEl = document.querySelector(".cd_tags");
   linkEl = document.querySelector(".cd_link");
   prevBtn = document.querySelector(".cd_prev");
   nextBtn = document.querySelector(".cd_next");
@@ -159,11 +160,12 @@ function shiftSlots(direction = "down") {
 
 function updateText() {
 
-  if (!titleEl || !descEl || !linkEl) return;
+  if (!titleEl || !tagsEl || !descEl || !linkEl) return;
 
   const text = cdTexts[currentIndex];
 
   titleEl.textContent = text.title;
+  tagsEl.textContent =text.tags
   descEl.textContent = text.description;
   linkEl.href = text.link;
 }
