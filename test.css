@@ -574,6 +574,8 @@ transform: translateY(-50%);
   position: relative;
 }
 
+
+
 #cd_chain_container {
   width: 100vw;
   height: 90vh;
@@ -593,6 +595,7 @@ transform: translateY(-50%);
   transform: scale(1);
   background: transparent;
 }
+
 
 .cd_nav{
   /* background-color: blue; */
@@ -677,6 +680,9 @@ transform: translateY(-50%);
   padding-bottom: 21px; */
   border-radius: 10px;
 }
+
+
+
 
 .fancy-btn{
   position: relative;

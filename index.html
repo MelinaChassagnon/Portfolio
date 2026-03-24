@@ -96,10 +96,10 @@
 
 
           <div class="sliding_text7">
-              <div><img src="img/stickers/creativite.png" alt="créativité"></div>
-              <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
-              <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
-            </div>
+            <div><img src="img/stickers/creativite.png" alt="créativité"></div>
+            <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
+            <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
+          </div>
 
           <!-- </div> -->
         </div>
@@ -268,89 +268,110 @@
       });
 
       runAnimation
-        .to(top, { 
-          transformOrigin: "70% 100%", 
-          scale: 0.7, 
-          rotate: 45, 
-          opacity: 0, 
-          duration: 2 }, 2)
-        .to(bottom, { 
-          transformOrigin: "20% 20%", 
-          scale: 0.7, 
-          rotate: 45, 
-          opacity: 0, 
-          y: 200, 
-          duration: 2 }, 2)
-        .to(perso, { 
-          transformOrigin: "50% 50%", 
-          scale: 1.5, 
-          duration: 2 }, 2)
+        .to(top, {
+          transformOrigin: "70% 100%",
+          scale: 0.7,
+          rotate: 45,
+          opacity: 0,
+          duration: 2
+        }, 2)
+        .to(bottom, {
+          transformOrigin: "20% 20%",
+          scale: 0.7,
+          rotate: 45,
+          opacity: 0,
+          y: 200,
+          duration: 2
+        }, 2)
+        .to(perso, {
+          transformOrigin: "50% 50%",
+          scale: 1.5,
+          duration: 2
+        }, 2)
 
-        .fromTo(".sliding_text1 span", { 
-          y: "120%", 
-          opacity: 0 }, 
-          { y: "0%", 
-          opacity: 1, 
-          stagger: 0.08, 
-          duration: 1, 
-          ease: "power4.out" }, 2.5)
+        .fromTo(".sliding_text1 span", {
+          y: "120%",
+          opacity: 0
+        },
+          {
+            y: "0%",
+            opacity: 1,
+            stagger: 0.08,
+            duration: 1,
+            ease: "power4.out"
+          }, 2.5)
 
-        .to(".sliding_text2 .highlight", { 
-          clipPath: "inset(0 0% 0 0)", 
-          duration: 0.3, 
-          ease: "none" }, 3.7)
-        .set(".sliding_text2 .text", { 
-          opacity: 1 }, 4)
-        .to(".sliding_text2 .highlight", { 
-          clipPath: "inset(0 0% 0 100%)", 
-          duration: 0.3, 
-          ease: "none" }, 4.3)
+        .to(".sliding_text2 .highlight", {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 0.3,
+          ease: "none"
+        }, 3.7)
+        .set(".sliding_text2 .text", {
+          opacity: 1
+        }, 4)
+        .to(".sliding_text2 .highlight", {
+          clipPath: "inset(0 0% 0 100%)",
+          duration: 0.3,
+          ease: "none"
+        }, 4.3)
 
-        .to(".sliding_text3 .highlight", { 
-          clipPath: "inset(0 0% 0 0)", 
-          duration: 0.3, 
-          ease: "none" }, 4.3)
-        .set(".sliding_text3 .text", { 
-          opacity: 1 }, 4.6)
-        .to(".sliding_text3 .highlight", { 
-          clipPath: "inset(0 0% 0 100%)", 
-          duration: 0.3, 
-          ease: "none" }, 4.9)
+        .to(".sliding_text3 .highlight", {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 0.3,
+          ease: "none"
+        }, 4.3)
+        .set(".sliding_text3 .text", {
+          opacity: 1
+        }, 4.6)
+        .to(".sliding_text3 .highlight", {
+          clipPath: "inset(0 0% 0 100%)",
+          duration: 0.3,
+          ease: "none"
+        }, 4.9)
 
-        .to(".sliding_text4 .line-highlight", { 
-          clipPath: "inset(0 0% 0 0)", 
-          duration: 0.3, 
-          ease: "none", 
-          stagger: 0.3 }, 4.7)
-        .set(".sliding_text4 .line-text", { 
-          opacity: 1, 
-          stagger: 0.3 }, 4.9)
-        .to(".sliding_text4 .line-highlight", { 
-          clipPath: "inset(0 0% 0 100%)", 
-          duration: 0.3, 
-          ease: "none", 
-          stagger: 0.3 }, 4.87)
+        .to(".sliding_text4 .line-highlight", {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 0.3,
+          ease: "none",
+          stagger: 0.3
+        }, 4.7)
+        .set(".sliding_text4 .line-text", {
+          opacity: 1,
+          stagger: 0.3
+        }, 4.9)
+        .to(".sliding_text4 .line-highlight", {
+          clipPath: "inset(0 0% 0 100%)",
+          duration: 0.3,
+          ease: "none",
+          stagger: 0.3
+        }, 4.87)
 
-        .to(".sliding_text5 .line-highlight", { 
-          clipPath: "inset(0 0% 0 0)", 
-          duration: 0.3, 
-          ease: "none", 
-          stagger: 0.3 }, 7.3)
-        .set(".sliding_text5 .line-text", { 
-          opacity: 1, 
-          stagger: 0.3 }, 7.5)
-        .to(".sliding_text5 .line-highlight", { 
-          clipPath: "inset(0 0% 0 100%)", 
-          duration: 0.3, 
-          ease: "none", 
-          stagger: 0.3 }, 7.47)
+        .to(".sliding_text5 .line-highlight", {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 0.3,
+          ease: "none",
+          stagger: 0.3
+        }, 7.3)
+        .set(".sliding_text5 .line-text", {
+          opacity: 1,
+          stagger: 0.3
+        }, 7.5)
+        .to(".sliding_text5 .line-highlight", {
+          clipPath: "inset(0 0% 0 100%)",
+          duration: 0.3,
+          ease: "none",
+          stagger: 0.3
+        }, 7.47)
 
-        .fromTo(".sliding_text7 div img",{
-          scale : 0
+        .fromTo(".sliding_text7 div img", {
+          scale: 0
         }, {
-          scale : 1,
-          duration : 1
-        }, 7.6);
+          scale: 1,
+          duration: 1
+        }, 7.6)
+
+      
+
     }
 
     // Lancement
@@ -382,19 +403,38 @@
 
 
 
-     runAnimation2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".bottom",
-          start: "top center",
-          end: "bottom bottom",
-          scrub: true
-        }
-      });
+    runAnimation2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".bottom",
+        start: "top center",
+        end: "bottom bottom",
+        scrub: true
+      }
+    });
 
-      runAnimation2
-        
+    runAnimation2
 
-        .fromTo(".sliding_text6 span", { y: "120%", opacity: 0 }, { y: "0%", opacity: 1, stagger: 0.08, duration: 1, ease: "power4.out" }, 2); 
+
+      
+.fromTo(".sliding_text6 span", { 
+  y: "120%", 
+  opacity: 0 
+}, { 
+  y: "0%", 
+  opacity: 1, 
+  stagger: 0.08, 
+  duration: 1, 
+  ease: "power4.out" 
+}, 2)
+
+.fromTo(".bottom > *:not(h3)", {
+  x: "200%"
+}, {
+  x: 0,
+  duration: 4,
+  ease: "power3.out",
+  stagger: 0.1
+}, 1.8);
 
 
 
