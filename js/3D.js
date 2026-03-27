@@ -72,7 +72,7 @@ function init() {
 
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
-  // ⭐ correction DPI
+  // correction DPI
   renderer.setPixelRatio(window.devicePixelRatio);
 
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -101,7 +101,7 @@ function init() {
 
 function getScaleRatio() {
 
-  // ⭐ correction DPI
+  // correction DPI
   const correctedWidth = container.clientWidth * window.devicePixelRatio;
 
   return Math.max(correctedWidth / 1920, 0.8);

@@ -16,7 +16,7 @@
 
 
     <div class="cd_btn_wrapper back_btn">
-          <a class="cd_next fancy-btn " href="../index.html">
+          <a class="cd_next fancy-btn " href="../index.html#projects">
           <span class="fill"></span>
           <span class="text">Retour</span>
           </a>
@@ -24,33 +24,35 @@
     <div class="header">
       <h1>Logo MMi2</h1>
       <h2>Création d'un logo fictif pour les deuxièmes années du BUT MMI</h2>
-      <!-- <div class="bg_header_txt">
-        <img src="../img/white-crinkled-paper-texture-background.jpg" alt="">
-      </div> -->
     </div>
 
+  <div class="tags">
+    <p>Date : Août 2025</p>
+    <p>Domaines : Graphisme</p>
+    <p>Logiciels : Procreate</p>
+  </div>
+    
     <section class="steps">
       <div class="step">
         <h3>1/ Le projet</h3>
         <div class="description">
           <p>
-            En août 2025, j’ai décidé de créer, dans mon temps libre, un logo pour les deuxièmes années dont je faisais bientôt partie. 
+            En août 2025, j’ai décidé de créer, dans mon temps libre, un logo pour les deuxièmes années dont je faisais bientôt partie. C'était un bon 
           </p></div>
       </div>
       <div class="step">
         <h3>2/ problématiques</h3>
         <div class="description">
           <p>
-            J’ai commencé par réunir plusieurs inspirations sur pinterest, ainsi qu’une liste de critères que le logo devait respecter.
-          </p>
-          <p>
-            Je souhaitais que le logo renvoie une impression de dynamisme et de jeunesse. Pour cela, j’ai opté pour un style Y2K et la couleur bleue, couleur représentant les deuxièmes années.
+            Il fallait que le  logo représente notre formation et ses étudiants ; il fallait qu'il illustre le dynamisme et la jeunesse.
           </p></div>
       </div>
       <div class="step">
         <h3>3/ Recherches</h3>
         <div class="description">
-          
+          <p>
+            J’ai commencé par réunir plusieurs inspirations sur Pinterest, ainsi qu’une liste de critères que le logo devait respecter. J'ai opté pour un style Y2K, un style coloré et énergique, ainsi que la coumeur bleue qui était la couleur représentant les étudiants de deuxièmes années.
+          </p>
           <div class="desc_img">
             <img src="../img/logo_moodboard.jpg" alt="">
             <img src="../img/logo_croquis.jpg" alt="">
@@ -60,9 +62,6 @@
       <div class="step">
         <h3>5/ Résultat</h3>
         <div class="description">
-          <p>
-            Après plusieurs recherche sur Procreate, j’ai développé un des concepts et ai réalisé ce logo final :
-          </p>
           <div class="desc_img ">
             <img class="desc_img_result" src="../img/logo.png" alt="">
           </div>
@@ -70,26 +69,13 @@
       </div>
     </section>
 
-    <script>
-      document.body.addEventListener("mousemove", (e) => {
-  const btn = e.target.closest(".fancy-btn");
-  if (!btn) return;
+    <div class="cd_btn_wrapper next_btn">
+    <a class="cd_next fancy-btn " href="project1.html">
+      <span class="fill"></span>
+      <span class="text">Projet suivant</span>
+    </a>
+  </div>
 
-  const rect = btn.getBoundingClientRect(); // position exacte du bouton dans le viewport
-  const x = ((e.clientX - rect.left) / rect.width) * 100;
-  const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-  btn.style.setProperty("--x", `${x}%`);
-  btn.style.setProperty("--y", `${y}%`);
-});
-
-const movingBg = document.querySelector(".moving_bg");
-
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-
-  movingBg.style.transform = `translateY(${scrollY * -0.3}px)`;
-});
-    </script>
+<script type="module" src="../js/project.js"></script>
   </body>
 </html>

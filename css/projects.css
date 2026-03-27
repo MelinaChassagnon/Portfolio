@@ -17,7 +17,7 @@ h1 {
     margin-right: auto;
     z-index: 5;
 
-        display: inline;
+    display: inline;
   background: rgb(248, 237, 231);
   padding: 0.2em 1.4vw;
   border-radius: 6px;
@@ -43,6 +43,13 @@ h2 {
   border-radius: 6px;
 }
 
+h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3rem;
+    color: #690f0f;
+    margin: 0;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -53,13 +60,10 @@ h2 {
   background-size: cover;
   background-color: rgba(247, 185, 104, 50);
   z-index: 2;
-  /* background-blend-mode:screen; */
   
 }
 
 .bg_header_txt img {
-    /* background-image: url("../img/white-crinkled-paper-texture-background.jpg");
-    background-size: cover; */
     transform: rotate(90deg);
     z-index: 2;
     height: 510%;
@@ -91,7 +95,7 @@ h2 {
 
 .moving_bg{
   position: absolute;
-  top: 30vh;   /* endroit où l'étoile commence */
+  top: 30vh;
   left: 10vw;
   z-index: 0;
   will-change: transform;
@@ -103,9 +107,7 @@ h2 {
 }
 
 .moving_bg img:nth-child(1){
-  
   height: 50vh;
-  /* width: clamp(100vw,100vw,100px); */
   left: -60%;
   transform: translateX(-40%);
 }
@@ -116,24 +118,15 @@ h2 {
   top: 50vh;
 }
 
-@font-face {
-  font-family: "Nohemi";
-  src: url(../fonts/Nohemi-Medium.woff2);
-  font-weight: 500;
+
+.tags {
+  z-index: 10;
+  position: relative;
+  justify-self: center;
+  margin: 10vh;
 }
 
-@font-face {
-  font-family: "Nohemi";
-  src: url(../fonts/Nohemi-Bold.woff2);
-  font-weight: 700;
-}
 
-h3{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 3rem;
-    color: #690f0f;
-    margin: 0;
-}
 
 .steps {
   position: relative;
@@ -156,6 +149,9 @@ h3{
     display: flex;
     overflow-x: auto;
 
+    align-items: center;
+    justify-content: center;
+
     width: 80vw;
     height: 70vh;
 
@@ -169,7 +165,12 @@ h3{
     scrollbar-color: #801616 transparent;
 }
 
-.desc_img_result {
+.desc_img img {
+  width: auto;
+  height: 100%;
+}
+
+.desc_img_result{
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -204,32 +205,12 @@ h3{
   border-radius: 20px;
 }
 
-.fancy-btn{
-  position: relative;
-  padding: 20px;
-  border-radius: 20px;
-  background:rgb(248, 237, 231);;
-  color: #801616;
-  border: 2px solid #801616;
-  overflow: hidden;
-  cursor: pointer;
-  text-decoration: none;
-  z-index: 3;
-  font-weight: 400;
-  font-size: clamp(1rem,1.5vw, 1.5vw);
-    display: inline-block;
-}
 
-.text {
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
-}
 
 .fancy-btn{
   position: relative;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 14px;
+  border-radius: 10px;
   background:rgb(248, 237, 231);
   color: #801616;
   border: 2px solid #801616;
@@ -237,6 +218,7 @@ h3{
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  z-index: 3;
 
   width: max-content;
   white-space: normal;
@@ -245,7 +227,11 @@ h3{
   font-size: clamp(1rem, 1.5vw, 1.5vw);
 }
 
-
+.text {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
 
 .fill {
   position: absolute;
@@ -274,4 +260,21 @@ h3{
     position: absolute;
     margin-left: 2vw;
     margin-top: 2vw;
+}
+
+.next_btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url(../fonts/Nohemi-Medium.woff2);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url(../fonts/Nohemi-Bold.woff2);
+  font-weight: 700;
 }

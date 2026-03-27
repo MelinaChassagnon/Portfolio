@@ -29,7 +29,6 @@ body, html {
     position: absolute;
     top: 60vh;
     z-index: 5;
-    /* background-color: aqua; */
 }
 
 .bg{
@@ -41,7 +40,7 @@ body, html {
 
 .moving_bg{
   position: absolute;
-  top: 100vh;   /* endroit où l'étoile commence */
+  top: 100vh;
   left: 10vw;
   z-index: 1;
   will-change: transform;
@@ -171,7 +170,7 @@ nav a {
   position: relative;
   width: clamp(200px, 18vw, 18vw);
   height: auto;
-  background-image: url("img/handle_bg.png");
+  background-image: url("../img/handle_bg.png");
   background-size: contain;
   margin-left: 5vw;
   margin-top: 5vh;
@@ -280,7 +279,7 @@ nav a {
 
 }
 
-.sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5 {
+.sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5, .sliding_text8{
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -335,6 +334,14 @@ nav a {
 
 }
 
+
+.sliding_text8 {
+  position: absolute;
+  left: 90%;
+top: 35%;
+}
+
+
 /* LA CORRECTION : Chaque ligne doit être un "table" pour coller au texte */
 .line {
   display: table !important; /* C'est CA qui empêche le gros bloc */
@@ -373,201 +380,6 @@ nav a {
   pointer-events: none;
 }
 
-/* 
-.sliding_text2, .sliding_text3 {
-  font-family: 'nohemi', sans-serif;
-  color: #801616;
-  font-size: 2rem;
-  font-weight: bold;
-  position: absolute;
-  display: inline-flex;
-
-}
-
-.sliding_text2 {
-  top: 44%;
-  left: 20%;
-}
-
-.sliding_text3 {
-  left: 20%;
-  top: 50%;
-transform: translateY(-50%);
-}
-
-.sliding_text2 .text, .sliding_text3 .text{
-  opacity: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.highlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #801616;
-  z-index: 2;
-  clip-path: inset(0 100% 0 0); 
-} */
-
-
-
-/* .abt_me1 {
-  display: flex;
-  flex-direction: row;
-}
-
-.abt_me2 {
-  display: flex;
-  justify-content: center;
-} */
-
-
-
-/* .sliding_text1 {
-  transform: translateY(100px);
-  opacity: 0;
-}
-
-.sliding_text2,
-.sliding_text4,
-.sliding_text6 {
-  transform: translateX(-100px);
-  opacity: 0;
-}
-
-.sliding_text3,
-.sliding_text5 {
-  transform: translateX(100px);
-  opacity: 0;
-} */
-
-
-
-
-
-
-
-
-
-/* .sliding_text3,
-.sliding_text4 {
-  flex: 1;
-} */
-
-/* .gacha {
-  margin: 2vw;
-  transform: translateY(-10vh);
-} */
-
-
-
-
-
-/* .text_container {
-  display: grid;
-  z-index: 0;
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  gap: 1vw;
-  grid-template-columns: 1fr 0.5fr 1fr 1fr 1fr;
-  grid-template-rows: 0.25fr 0.25fr 1fr 1fr;
-  grid-template-areas:
-    "header header a a btn1"
-    "header header gacha p2 p2"
-    "p1 p1 gacha p2 p2"
-    "adj1 adj1 gacha . .";
-  font-size: clamp(1rem, 1vw, 1vw);
-  font-family: "Nohemi", sans-serif;
-  color: #801616;
-}
-
-/* .sliding_text1, .sliding_text2, .sliding_text3, .sliding_text4, .sliding_text5, .sliding_text6 {
-  opacity: 0;
-  overflow: hidden;
-  padding-left: 3vw;
-}
-
-.gacha {
-  grid-area: gacha;
-}
-
-.sliding_text2, .sliding_text4, .sliding_text6 {
-  transform: translateX(100%);
-}
-
-.sliding_text3, .sliding_text5 {
-  transform: translateX(-100%);
-}
-
-.sliding_text1 {
-  grid-area: header;
-  margin: auto;
-  padding: 0;
-  transform: translateY(-100%);
-  padding-left: 2vw;
-  white-space: nowrap;
-}
-
-.sliding_text2 {
-  grid-area: a;
-  font-size: clamp(1.5rem, 2vw, 2vw);
-  font-weight: 700;
-  overflow: visible;
-}
-
-.sliding_text3 {
-  grid-area: p1;
-}
-
-.sliding_text4 {
-  grid-area: p2;
-}
-
-.sliding_text5 {
-  grid-area: adj1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.sliding_text5 img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.sliding_text5 div {
-  height: 100%;
-}
-
-.sliding_text6 {
-  grid-area: btn1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-
-
-/* @media (max-width: 800px) {
-  .text_container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 0.5fr 1fr 2fr 1fr 0.5fr;
-    grid-template-areas:
-      "header header"
-      "a btn1"
-      "p1 p1"
-      "gacha gacha"
-      "p2 p2"
-      "adj1 adj1";
-    gap: -10px;
-  }
-}  */
-  
 
 .bottom{
   height: 100vh;
@@ -746,15 +558,22 @@ transform: translateY(-50%);
   color: aliceblue;
 }
 
+footer {
+  width: 100vw;
+  height: 20vh;
+  background-color: #801616;
+  display: flex;
+  margin-top: 20vh;
+}
 
 @font-face {
   font-family: "Nohemi";
-  src: url(fonts/Nohemi-Medium.woff2);
+  src: url(../fonts/Nohemi-Medium.woff2);
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Nohemi";
-  src: url(fonts/Nohemi-Bold.woff2);
+  src: url(../fonts/Nohemi-Bold.woff2);
   font-weight: 700;
 }

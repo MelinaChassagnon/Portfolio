@@ -8,9 +8,9 @@
 
   <!-- <meta http-equiv="refresh" content="0; url=unfinished.html" /> -->
 
-  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="/css/test.css" />
 
-  <title>Document</title>
+  <title>Portofolio Mélina Chassagnon</title>
 </head>
 
 
@@ -26,7 +26,7 @@
   <nav>
     <a href="#about_me">À propos</a>
     <a href="#projects">Projets</a>
-    <a href="#contact">Contact</a>
+    <a href="#contacts">Contacts</a>
   </nav>
 
   <div class="container">
@@ -60,7 +60,6 @@
       <div class="container2">
         <div class="gacha_wrap">
           <div id="gacha" class="gacha"></div>
-          <!-- <div class="text_container"> -->
           <h3 class="sliding_text1">
             <span>A</span><span>B</span><span>O</span><span>U</span><span>T</span>
             <span></span><span>M</span><span>E</span>
@@ -100,59 +99,20 @@
             <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
             <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
           </div>
-
-          <!-- </div> -->
+<div class="cd_btn_wrapper sliding_text8">
+          <a class="cd_next fancy-btn" href="/pages/contacts.html">
+            <span class="fill"></span>
+            <span class="text">Contacts</span>
+          </a>
         </div>
+        </div>
+
+        
       </div>
-
-
-      <!-- 
-      <div class="container2">
-        <div class="gacha_wrap">
-
-          <div class="text_container">
-            <div class="abt_me1">
-              <h3 class="sliding_text1">ABOUT ME</h3>
-              <p class="sliding_text2">
-                Salut ! Moi c'est Mélina, j'ai 19 ans.
-              </p>
-              <div class="sliding_text6">
-                <a href="#contacts" class="fancy-btn">
-                  <span class="fill"></span>
-                  <span class="text">CONTACTS</span>
-                </a>
-              </div>
-            </div>
-            <div class="abt_me2">
-              <p class="sliding_text3">
-              Actuellement étudiante en BUT des Métiers du Multimédia et de
-              l'Internet, je suis passionnée d'art et de graphisme. J'aime
-              apporter ma créativité aux projets du numérique, comme ceux de
-              développement web et de jeux vidéos.
-            </p>
-              <div id="gacha" class="gacha"></div>
-              <p class="sliding_text4">
-              Mon travail combine de nombreux domaines : le développement web, le graphisme, l'illustration et la
-              photographie.
-              Animée par l'envie d'apprendre, je cherche à développer continuellement de nouvelles compétences !
-            </p>
-            </div>
-
-            
-            
-            <div class="sliding_text5">
-              <div><img src="img/stickers/creativite.png" alt="créativité"></div>
-              <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
-              <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
-            </div>
-
-          </div>
-        </div>
-      </div> -->
   </div>
 
   <section class="bottom">
-    <h3 class="sliding_text6">
+    <h3 class="sliding_text6" id="projects">
       <span>P</span><span>R</span><span>O</span><span>J</span><span>E</span><span>T</span><span>S</span>
     </h3>
     <p>tout</p>
@@ -187,269 +147,26 @@
     <div id="cd_chain_container" class="cd_chain_container"></div>
   </section>
 
+  <section class="contacts" id="contacts">
+
+  </section>
+
+  <!-- <footer>
+    contacts
+
+    melina.chassagnon@gmail.com
+  </footer> -->
 
 
 
-  <script type="module" src="gachapon.js"></script>
+  <script type="module" src="/js/gachapon.js"></script>
   <script src="https://unpkg.com/split-type"></script>
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script type="module" src="/js/3D.js"></script>
+  <script type="module" src="/js/script.js"></script>
 
-  <script>
-
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const handleImg = document.querySelector('.handle img');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      handleImg.style.transform = `rotate(${scrollY / 10}deg)`;
-    });
-
-    function loadSVG() {
-      fetch("/img/gacha/gacha_decomposed/gacha.svg")
-        .then((response) => { return response.text(); })
-        .then((svg) => {
-          document.getElementById("gacha").innerHTML = svg;
-          document.querySelector('#gacha svg').setAttribute("preserveAspectRatio", "xMidYMid meet");
-
-          setAnimationScroll();
-        })
-    }
-
-    loadSVG();
-    let text4, text5; // On déclare les deux variables de split en haut
-    let runAnimation;
-
-    function setAnimationScroll() {
-      if (runAnimation) runAnimation.kill();
-      if (text4) text4.revert();
-      if (text5) text5.revert(); // Nettoyage du texte 5
-
-      const target4 = document.querySelector('.sliding_text4');
-      const target5 = document.querySelector('.sliding_text5'); // Cible du texte 5
-      const svg = document.querySelector("#gacha svg");
-
-      if (!target4 || !target5 || !svg) return;
-
-      const top = svg.querySelector("#top");
-      const perso = svg.querySelector("#perso");
-      const bottom = svg.querySelector("#bottom");
-
-      // --- RESET ---
-      gsap.set([top, bottom, perso], { clearProps: "all" });
-      gsap.set(".sliding_text2 .text, .sliding_text3 .text", { opacity: 0 });
-
-      // --- SPLIT TEXT 4 ---
-      text4 = new SplitType(target4, { types: 'lines' });
-      text4.lines.forEach(line => {
-        const content = line.innerHTML;
-        line.innerHTML = `<span class="line-text" style="opacity:0; display:block;">${content}</span><span class="line-highlight"></span>`;
-      });
-
-      // --- SPLIT TEXT 5 (AJOUT) ---
-      text5 = new SplitType(target5, { types: 'lines' });
-      text5.lines.forEach(line => {
-        const content = line.innerHTML;
-        line.innerHTML = `<span class="line-text" style="opacity:0; display:block;">${content}</span><span class="line-highlight"></span>`;
-      });
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      runAnimation = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".container",
-          start: "30% center",
-          end: "bottom bottom",
-          scrub: true,
-          invalidateOnRefresh: true
-        }
-      });
-
-      runAnimation
-        .to(top, {
-          transformOrigin: "70% 100%",
-          scale: 0.7,
-          rotate: 45,
-          opacity: 0,
-          duration: 2
-        }, 2)
-        .to(bottom, {
-          transformOrigin: "20% 20%",
-          scale: 0.7,
-          rotate: 45,
-          opacity: 0,
-          y: 200,
-          duration: 2
-        }, 2)
-        .to(perso, {
-          transformOrigin: "50% 50%",
-          scale: 1.5,
-          duration: 2
-        }, 2)
-
-        .fromTo(".sliding_text1 span", {
-          y: "120%",
-          opacity: 0
-        },
-          {
-            y: "0%",
-            opacity: 1,
-            stagger: 0.08,
-            duration: 1,
-            ease: "power4.out"
-          }, 2.5)
-
-        .to(".sliding_text2 .highlight", {
-          clipPath: "inset(0 0% 0 0)",
-          duration: 0.3,
-          ease: "none"
-        }, 3.7)
-        .set(".sliding_text2 .text", {
-          opacity: 1
-        }, 4)
-        .to(".sliding_text2 .highlight", {
-          clipPath: "inset(0 0% 0 100%)",
-          duration: 0.3,
-          ease: "none"
-        }, 4.3)
-
-        .to(".sliding_text3 .highlight", {
-          clipPath: "inset(0 0% 0 0)",
-          duration: 0.3,
-          ease: "none"
-        }, 4.3)
-        .set(".sliding_text3 .text", {
-          opacity: 1
-        }, 4.6)
-        .to(".sliding_text3 .highlight", {
-          clipPath: "inset(0 0% 0 100%)",
-          duration: 0.3,
-          ease: "none"
-        }, 4.9)
-
-        .to(".sliding_text4 .line-highlight", {
-          clipPath: "inset(0 0% 0 0)",
-          duration: 0.3,
-          ease: "none",
-          stagger: 0.3
-        }, 4.7)
-        .set(".sliding_text4 .line-text", {
-          opacity: 1,
-          stagger: 0.3
-        }, 4.9)
-        .to(".sliding_text4 .line-highlight", {
-          clipPath: "inset(0 0% 0 100%)",
-          duration: 0.3,
-          ease: "none",
-          stagger: 0.3
-        }, 4.87)
-
-        .to(".sliding_text5 .line-highlight", {
-          clipPath: "inset(0 0% 0 0)",
-          duration: 0.3,
-          ease: "none",
-          stagger: 0.3
-        }, 7.3)
-        .set(".sliding_text5 .line-text", {
-          opacity: 1,
-          stagger: 0.3
-        }, 7.5)
-        .to(".sliding_text5 .line-highlight", {
-          clipPath: "inset(0 0% 0 100%)",
-          duration: 0.3,
-          ease: "none",
-          stagger: 0.3
-        }, 7.47)
-
-        .fromTo(".sliding_text7 div img", {
-          scale: 0
-        }, {
-          scale: 1,
-          duration: 1
-        }, 7.6)
-
-      
-
-    }
-
-    // Lancement
-    window.addEventListener("load", setAnimationScroll);
-
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(setAnimationScroll, 250);
-    });
-
-
-    // Pour que ça s'active tout seul au changement de taille :
-    window.addEventListener("resize", setAnimationScroll);
-
-    ScrollTrigger.create({
-      trigger: ".container",
-      start: "26% center",
-      end: "bottom bottom",
-      pin: ".container2",
-      markers: false,
-    });
-
-    window.addEventListener("resize", () => {
-      ScrollTrigger.refresh();
-    });
-
-
-
-
-
-    runAnimation2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".bottom",
-        start: "top center",
-        end: "bottom bottom",
-        scrub: true
-      }
-    });
-
-    runAnimation2
-
-
-      
-.fromTo(".sliding_text6 span", { 
-  y: "120%", 
-  opacity: 0 
-}, { 
-  y: "0%", 
-  opacity: 1, 
-  stagger: 0.08, 
-  duration: 1, 
-  ease: "power4.out" 
-}, 2)
-
-.fromTo(".bottom > *:not(h3)", {
-  x: "200%"
-}, {
-  x: 0,
-  duration: 4,
-  ease: "power3.out",
-  stagger: 0.1
-}, 1.8);
-
-
-
-
-    const movingBg = document.querySelector(".moving_bg");
-
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-
-      movingBg.style.transform = `translateY(${scrollY * -0.3}px)`;
-    });
-
-
-
-  </script>
 </body>
 
 </html>
