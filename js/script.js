@@ -31,7 +31,7 @@
 
     loadSVG();
     let text4, text5;
-    let runAnimation, runAnimation2;
+    let runAnimation, runAnimation2, runAnimation3;
 
     function setAnimationScroll() {
       if (runAnimation) runAnimation.kill();
@@ -253,7 +253,27 @@
   stagger: 0.1
 }, 1.8);
 
+    runAnimation3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".contacts",
+        start: "top center",
+        end: "bottom bottom",
+        scrub: true
+      }
+    });
 
+    runAnimation3
+
+    .fromTo(".sliding_text9 span", { 
+  y: "120%", 
+  opacity: 0 
+}, { 
+  y: "0%", 
+  opacity: 1, 
+  stagger: 0.08, 
+  duration: 1, 
+  ease: "power4.out" 
+}, 1);
 
 
     const movingBg = document.querySelector(".moving_bg");

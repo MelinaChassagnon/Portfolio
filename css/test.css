@@ -255,12 +255,12 @@ nav a {
   justify-content: center;
 }
 
-.sliding_text1, .sliding_text6 {
+.sliding_text1, .sliding_text6, .sliding_text9 {
   overflow: hidden;
   padding: 2vw;
 }
 
-.sliding_text1 span, .sliding_text6 span {
+.sliding_text1 span, .sliding_text6 span, .sliding_text9 span {
   display: inline-block;
   transform: translateY(120%);
   opacity: 0;
@@ -493,6 +493,10 @@ top: 35%;
   border-radius: 10px;
 }
 
+
+.contacts {
+  height: 100vh;
+}
 
 
 
