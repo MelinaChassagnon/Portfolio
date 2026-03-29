@@ -239,13 +239,22 @@
 }, { 
   y: "0%", 
   opacity: 1, 
-  stagger: 0.08, 
-  duration: 1, 
+  stagger: 0.4, 
+  duration: 4, 
   ease: "power4.out" 
 }, 2)
 
-.fromTo(".bottom > *:not(h3)", {
+.fromTo(".bottom > *:not(.projects_header)", {
   x: "200%"
+}, {
+  x: 0,
+  duration: 4,
+  ease: "power3.out",
+  stagger: 0.1
+}, 1.8)
+
+.fromTo(".nav_projects", {
+  x: "-100%"
 }, {
   x: 0,
   duration: 4,
@@ -273,7 +282,7 @@
   stagger: 0.08, 
   duration: 1, 
   ease: "power4.out" 
-}, 1);
+}, 0);
 
 
     const movingBg = document.querySelector(".moving_bg");
@@ -285,4 +294,13 @@
     });
 
 
+const mail = document.getElementById('mail');
+const copiedText = "melina.chassagnon@gmail.com";
+const statusText = document.getElementById('status');
 
+mail.addEventListener('click', async () => {
+  await navigator.clipboard.writeText(copiedText);
+
+  statusText.style.display = 'block';
+        setTimeout(() => { statusText.style.display = 'none'; }, 2000);
+})

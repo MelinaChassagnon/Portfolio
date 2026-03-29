@@ -99,25 +99,29 @@
             <div><img src="/img/stickers/travail_equipe.png" alt="travail d'équipe"></div>
             <div><img src="img/stickers/curiosite.png" alt="curiosité"></div>
           </div>
-<div class="cd_btn_wrapper sliding_text8">
-          <a class=" fancy-btn" href="/pages/contacts.html">
-            <span class="fill"></span>
-            <span class="text">Contacts</span>
-          </a>
-        </div>
+          <div class="cd_btn_wrapper sliding_text8">
+            <a class=" fancy-btn" href="#contacts">
+              <span class="fill"></span>
+              <span class="text">Contacts</span>
+            </a>
+          </div>
         </div>
 
-        
+
       </div>
   </div>
 
   <section class="bottom">
-    <h3 class="sliding_text6" id="projects">
-      <span>P</span><span>R</span><span>O</span><span>J</span><span>E</span><span>T</span><span>S</span>
-    </h3>
-    <p>tout</p>
-    <p>illustrations</p>
-    <p>photographie</p>
+    <div class="projects_header">
+        <h3 class="sliding_text6" id="projects">
+            <span>P</span><span>R</span><span>O</span><span>J</span><span>E</span><span>T</span><span>S</span>
+        </h3>
+        <div class="nav_projects">
+            <p onclick="switchCategory('multimedia')">Multimédia</p>
+            <p onclick="switchCategory('illustration')">Illustration / Animation</p>
+        </div>
+    </div>
+
     <div class="projects_text_container">
       <p class="cd_title"></p>
       <p class="cd_tags"></p>
@@ -148,12 +152,17 @@
   </section>
 
   <section class="contacts" id="contacts">
-<h3 class="sliding_text9">
-<span>C</span><span>O</span><span>N</span><span>T</span><span>A</span><span>C</span><span>T</span><span>S</span>
-</h3>
-<a href=""><img src="/img/stickers/linkedin.webp" alt=""></a>
-<a href=""><img src="/img/stickers/github.webp" alt=""></a>
-<a href=""><img src="/img/stickers/CV.webp" alt=""></a>
+    <h3 class="sliding_text9">
+      <span>C</span><span>O</span><span>N</span><span>T</span><span>A</span><span>C</span><span>T</span><span>S</span>
+    </h3>
+    <div class="contacts_stickers">
+      <a href=""><img src="/img/stickers/linkedin.webp" alt="" class="linkedin"></a>
+      <a href=""><img src="/img/stickers/github.webp" alt="" class="github"></a>
+      <a href=""><img src="/img/stickers/CV.webp" alt="" class="cv"></a>
+      <img src="/img/stickers/mail.webp" alt="" class="mail" id="mail">
+      <p class="status" id="status">Mail copié !</p>
+    </div>
+
   </section>
 
   <!-- <footer>

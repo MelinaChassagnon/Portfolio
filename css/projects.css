@@ -147,10 +147,9 @@ h3{
 
 .desc_img {
     display: flex;
-    overflow-x: auto;
 
     align-items: center;
-    justify-content: center;
+    justify-content: safe center;
 
     width: 80vw;
     height: 70vh;
@@ -163,6 +162,26 @@ h3{
 
     scrollbar-width: thin;
     scrollbar-color: #801616 transparent;
+    
+}
+
+.desc_img:not(:has(img:only-child)) {
+    overflow-x: auto; 
+}
+
+/* 2. Si .desc_img contient UNE SEULE image */
+.desc_img:has(img:only-child), .desc_img:has(div:only-child) {
+    justify-content: center; /* Centre l'image unique */
+    overflow-x: hidden;      /* Désactive totalement le scroll horizontal */
+}
+
+/* 3. Style de l'image unique pour qu'elle s'adapte parfaitement */
+.desc_img img:only-child, .desc_img div img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .desc_img img {
@@ -176,6 +195,19 @@ h3{
   object-fit: contain;
 }
 
+.desc_img a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #801616;
+font-family: 'nohemi', sans-serif;
+background-color: antiquewhite;
+padding: 1vw;
+text-decoration: none;
+border: solid 2px #801616;
+border-radius: 5px;
+}
 
 .desc_img::-webkit-scrollbar {
   height: 8px;
@@ -193,6 +225,54 @@ h3{
 .desc_img::-webkit-scrollbar-thumb:hover {
   background: #5c0d0d;
 }
+
+/* On cible le container d'image qui contient la vidéo */
+.step:last-child .desc_img {
+    height: auto;      /* Laisse la vidéo prendre sa place naturelle */
+    min-height: 40vh; 
+    overflow: hidden;  /* Empêche le scroll sur cette section précise */
+}
+
+/* Container de la vidéo */
+.video_responsive {
+    width: 100%;       /* Prend toute la largeur du parent (.desc_img) */
+    max-width: 1000px; /* Évite que la vidéo soit géante sur grand écran */
+    aspect-ratio: 16 / 9; /* Définit le ratio proprement sans padding hack */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: auto;      /* Centre horizontalement */
+}
+
+.video_responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video_container {
+    width: clamp(200px,80vw,700px);
+    margin: 5vh auto;
+
+    
+    
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #801616;
+        border-radius: 15px;
+}
+
 
 
 .cd_btn_wrapper {
@@ -213,6 +293,7 @@ h3{
   border-radius: 10px;
   background:rgb(248, 237, 231);
   color: #801616;
+  font-family: 'nohemi', sans-serif;
   border: 2px solid #801616;
   overflow: hidden;
   cursor: pointer;

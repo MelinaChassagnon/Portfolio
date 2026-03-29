@@ -386,7 +386,32 @@ top: 35%;
   position: relative;
 }
 
+.projects_header {
+    position: absolute;
+    top: 10vh;
+    left: 2vw;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
 
+.bottom h3 {
+    position: relative !important; /* On annule l'absolute précédent */
+    top: 0 !important;
+    padding-left: 0 !important;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+.nav_projects {
+  font-family: 'nohemi', sans-serif;
+  color: #801616;
+}
+
+.nav_projects p {
+  cursor: pointer;
+}
 
 #cd_chain_container {
   width: 100vw;
@@ -415,7 +440,7 @@ top: 35%;
   display: flex;
   justify-content: center;
   justify-self: center;
-  bottom: -75vh;
+  bottom: -90vh;
   gap: 10px;
   z-index: 100;
 }
@@ -435,7 +460,7 @@ top: 35%;
   }
 
   .cd_nav{
-    bottom: -65vh;
+    bottom: -75vh;
     justify-self: left;
     margin-left: 10vw;
   }
@@ -499,6 +524,72 @@ top: 35%;
 }
 
 
+.contacts_stickers {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; 
+}
+
+.linkedin, .mail, .cv, .github {
+  position: absolute; 
+  transform-origin: center;
+}
+
+.linkedin {
+  width: 20vw;
+  min-width: 150px;
+  left: 10%;
+  top: -5%;
+  rotate: -10deg;
+}
+
+.mail {
+  width: 35vw;
+  min-width: 350px;
+  left: 5%;
+  top: 10vh;
+  rotate: 2deg;
+  cursor: pointer;
+}
+
+.cv {
+  width: 10vw;
+  min-width: 100px;
+  right: 25%;
+  top: 55%;
+  rotate: -5deg;
+}
+
+.github {
+  width: 12vw;
+  min-width: 100px;
+  right: 20%;
+  top: 10%;
+  rotate: 5deg;
+}
+
+
+.status {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  font-family: 'nohemi', sans-serif;
+  display: none;
+  color: #801616;
+}
+
+
+@media (max-width: 700px) {
+  .mail {
+    top: 0%;
+  }
+
+  .cv {
+    top: 65%;
+  }
+}
 
 .fancy-btn{
   position: relative;

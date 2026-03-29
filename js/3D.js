@@ -4,14 +4,32 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 let scene, camera, renderer;
 let container;
 const models = [];
+const loader = new GLTFLoader();
 
-const cdTexts = [
-  { title: "Campagne de la Fête de la Laine", tags: "Graphisme // Design UI/UX" ,description: "Création d'une campagne institutionelle", link:"/pages/project1.html"},
-  { title: "VAG Inventory", tags: "Graphisme // Design UI/UX // 3D // Développement Web", description: "Site web recueillant l'inventaire des figurines 'VAG'.", link:"/pages/project2.html" },
-  { title: "'THE MOTH'", tags:" Écriture // Tournage // Montage", description: "Court-métrage", link:"/pages/project3.html"},
-  { title: "Affiche NOOMA",tags:"Graphisme", description: "Exercice de création de concept et d’affiche rapide", link:"/pages/project4.html" },
-  { title: "Logo", tags:"Graphisme", description: "Création d'un logo fictif pour les deuxièmes années du BUT MMI", link:"/pages/project5.html" }
-];
+
+const projectData = {
+  multimedia: {
+    modelPath: "../3D/Cd.gltf", // Ton modèle de CD actuel
+    projects: [
+      { title: "Campagne Fête de la Laine", tags: "Graphisme // Design UI/UX", description: "Création d'une campagne...", link: "/pages/project1.html" },
+      { title: "VAG Inventory", tags: "Graphisme // 3D", description: "Site web d'inventaire...", link: "/pages/project2.html" },
+      { title: "'THE MOTH'", tags: "Montage", description: "Court-métrage", link: "/pages/project3.html" },
+      { title: "Affiche NOOMA", tags: "Graphisme", description: "Affiche rapide", link: "/pages/project4.html" },
+      { title: "Logo", tags: "Graphisme", description: "Logo fictif", link: "/pages/project5.html" }
+    ]
+  },
+  illustration: {
+    projects: [
+      { title: "Animation ambiance", tags: "animation // ambiance", description: "Courte animation test dans l'objectif de créer une ambiance", link: "/pages/illu1.html", modelPath: "../3D/wolf_anime.glb"},
+      { title: "Illustrations sérigraphie", tags: "Illustration // sérigraphie", description: "Illustrations réalisées pour un stand de sérigraphie", link: "/pages/illu2.html", modelPath: "../3D/cd_seri.glb" },
+      { title: "Notification animée", tags: "Animaton", description: "Animation pour alerte de communauté", link: "/pages/illu3.html", modelPath: "../3D/cd_eye.glb" },
+      { title: "Fond de site en Pixel Art", tags: "Traditionnel", description: "Illustration réalisée dans le cadre de la Nuit de l'Info", link: "/pages/illu4.html", modelPath: "../3D/cd_pixelart.glb" },
+      { title: "Adaptation et peinture modèle 3D", tags: "3D // Illustration", description: "Adaptation et peinture d'un modèle 3D pour un site internet", link: "/pages/illu5.html", modelPath: "../3D/cd_motoko.glb" }
+    ]
+  }
+};
+
+let currentCategory = "multimedia";
 
 let titleEl, tagsEl, descEl, linkEl;
 let prevBtn, nextBtn;
@@ -27,6 +45,31 @@ const slots = [
 let currentSlots = slots.map(s => ({...s}));
 let currentIndex = 0;
 
+function loadModels() {
+  // On nettoie la scène
+  models.forEach(model => { if (model) scene.remove(model); });
+  models.length = 0; 
+
+  const category = projectData[currentCategory];
+
+  category.projects.forEach((project, i) => {
+    const path = project.modelPath || category.modelPath;
+
+    loader.load(path, (gltf) => {
+      const model = gltf.scene;
+      applySlot(model, currentSlots[i]);
+      scene.add(model);
+      
+      // On l'ajoute au tableau. 
+      // Si on utilise models[i], l'itérateur du forEach dans animate 
+      // peut sauter des étapes si le modèle 2 charge avant le 1.
+      models.push(model); 
+      
+      console.log("Modèle affiché :", path);
+      updateText();
+    });
+  });
+}
 function init() {
 
   container = document.getElementById("cd_chain_container");
@@ -80,20 +123,13 @@ function init() {
 
   container.appendChild(renderer.domElement);
 
-  const loader = new GLTFLoader();
+  container.appendChild(renderer.domElement);
 
-  loader.load("../3D/Cd.gltf", (gltf) => {
+  renderer.outputEncoding = THREE.sRGBEncoding; 
 
-    slots.forEach((slot, i) => {
-      const model = gltf.scene.clone(true);
-      applySlot(model, currentSlots[i]);
-      scene.add(model);
-      models.push(model);
-    });
-
-    updateText();
-    animate();
-  });
+  // Supprime l'ancien loader.load et remplace par ça :
+  loadModels(); 
+  animate();
 
   window.addEventListener("resize", onResize);
   onResize();
@@ -108,6 +144,9 @@ function getScaleRatio() {
 }
 
 function applySlot(model, slot) {
+
+  // Temporairement, pour voir si le loup apparaît
+model.scale.setScalar(100);
 
   const ratio = getScaleRatio();
 
@@ -159,13 +198,12 @@ function shiftSlots(direction = "down") {
 }
 
 function updateText() {
-
   if (!titleEl || !tagsEl || !descEl || !linkEl) return;
 
-  const text = cdTexts[currentIndex];
+  const text = projectData[currentCategory].projects[currentIndex];
 
   titleEl.textContent = text.title;
-  tagsEl.textContent =text.tags
+  tagsEl.textContent = text.tags;
   descEl.textContent = text.description;
   linkEl.href = text.link;
 }
@@ -200,5 +238,24 @@ function animate() {
 
   renderer.render(scene, camera);
 }
+
+
+
+function switchCategory(categoryName) {
+  if (!projectData[categoryName] || currentCategory === categoryName) return;
+  
+  currentCategory = categoryName;
+  currentIndex = 0; // On revient au premier projet
+  
+  // On réinitialise l'ordre des slots pour que le premier projet 
+  // soit bien au centre/devant au changement
+  currentSlots = slots.map(s => ({...s}));
+
+  // On appelle la fonction pour charger les nouveaux modèles
+  loadModels();
+}
+
+// Rendre la fonction accessible depuis ton HTML
+window.switchCategory = switchCategory;
 
 document.addEventListener("DOMContentLoaded", init);
