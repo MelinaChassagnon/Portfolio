@@ -186,13 +186,14 @@ h3{
 
 .desc_img img {
   width: auto;
-  height: 100%;
+  height: 90vh;
+  
 }
 
 .desc_img_result{
-  width: 100%;
+  width: clamp(300px, 50vw, 800px);
   height: auto;
-  object-fit: contain;
+  object-fit:contain;
 }
 
 .desc_img a {
@@ -271,6 +272,102 @@ video {
     display: block;
     border: 2px solid #801616;
         border-radius: 15px;
+}
+
+
+/* Style du dialogue (le conteneur) */
+/* Le conteneur (dialog) */
+#image-viewer {
+  position: fixed; /* Fixe par rapport à l'écran, pas à la page */
+  inset: 0;        /* Remplace top, left, right, bottom: 0 */
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  
+  /* On utilise flex pour centrer l'image */
+  display: none; /* Caché par défaut */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Force l'affichage en flex UNIQUEMENT quand il est ouvert */
+#image-viewer[open] {
+  display: flex;
+}
+
+/* Style de l'overlay (fond sombre natif) */
+#image-viewer::backdrop {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* L'image à l'intérieur */
+#full-screen-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Le bouton fermer */
+.close-viewer {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+/* Animation d'ouverture (optionnel) */
+#image-viewer[open] {
+  animation: zoom 0.3s ease-out;
+}
+
+@keyframes zoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Style pour indiquer que l'image est cliquable dans ton portfolio */
+.desc_img img {
+  cursor: zoom-in;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 50px;
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  z-index: 10001;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#prev-img { left: 20px; }
+#next-img { right: 20px; }
+
+/* Cacher les flèches sur mobile si besoin ou les agrandir */
+@media (max-width: 768px) {
+  .nav-arrow { font-size: 30px; padding: 10px; }
 }
 
 

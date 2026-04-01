@@ -1,3 +1,28 @@
+ document.addEventListener('DOMContentLoaded', () => {
+    const loader = document.getElementById('loader');
+    
+    // On vérifie si l'utilisateur est déjà passé par l'accueil durant cette session
+    if (sessionStorage.getItem('visited')) {
+        // Si oui, on cache le loader immédiatement sans animation
+        if (loader) {
+            loader.style.display = 'none';
+            // On s'assure que le scroll est activé
+            document.body.style.overflow = 'auto';
+        }
+    } else {
+        // Si c'est la première fois, on attend le clic sur le bouton "Entrer"
+        const enterBtn = document.getElementById('enter-btn');
+        if (enterBtn) {
+            enterBtn.addEventListener('click', () => {
+                loader.classList.add('loader-hidden');
+                document.body.style.overflow = 'auto';
+                // On enregistre qu'on a déjà vu le loader
+                sessionStorage.setItem('visited', 'true');
+            });
+        }
+    }
+});
+ 
  const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const handleImg = document.querySelector('.handle img');
 

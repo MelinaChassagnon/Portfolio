@@ -9,12 +9,41 @@
   <!-- <meta http-equiv="refresh" content="0; url=unfinished.html" /> -->
 
   <link rel="stylesheet" href="/css/test.css" />
+  <link rel="stylesheet" href="/css/transition.css">
 
   <title>Portofolio Mélina Chassagnon</title>
 </head>
 
 
 <body>
+
+<script>
+  if (sessionStorage.getItem('visited')) {
+    document.documentElement.classList.add('hide-loader-instantly');
+  }
+</script>
+
+<body>
+<div class="transition-overlay"></div>
+
+<div id="loader">
+  </div>
+
+<div id="loader">
+  <div class="loader-content">
+    <div class="loader-title">
+      <h1>MÉLINA CHASSAGNON</h1>
+      <p>Bienvenue ! Ce portfolio est en cours de développement, il est recommandé de le consulter sur ordinateur ! ★</p>
+    </div>
+
+    <div class="cd_btn_wrapper" id="enter-wrapper" style="display: none;">
+        <button class="fancy-btn" id="enter-btn">
+          <span class="fill"></span>
+          <span class="text">ENTRER</span>
+        </button>
+    </div>
+  </div>
+</div>
 
   <section class="bg">
     <div class="moving_bg">
@@ -58,7 +87,7 @@
 
 
       <div class="container2">
-        <div class="gacha_wrap">
+        <div class="gacha_wrap" id="about_me">
           <div id="gacha" class="gacha"></div>
           <h3 class="sliding_text1">
             <span>A</span><span>B</span><span>O</span><span>U</span><span>T</span>
@@ -158,7 +187,7 @@
     <div class="contacts_stickers">
       <a href=""><img src="/img/stickers/linkedin.webp" alt="" class="linkedin"></a>
       <a href=""><img src="/img/stickers/github.webp" alt="" class="github"></a>
-      <a href=""><img src="/img/stickers/CV.webp" alt="" class="cv"></a>
+      <a href="/img/cv.pdf" target="_blank"><img src="/img/stickers/CV.webp" alt="Télécharger mon CV" class="cv"></a>
       <img src="/img/stickers/mail.webp" alt="" class="mail" id="mail">
       <p class="status" id="status">Mail copié !</p>
     </div>
@@ -180,6 +209,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script type="module" src="/js/3D.js"></script>
   <script type="module" src="/js/script.js"></script>
+<script src="/js/transition.js"></script>
+  
+
 
 </body>
 
