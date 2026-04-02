@@ -99,16 +99,32 @@ if (overlay) {
         if (e.key === "Escape") closeViewer();
     });
 
-    /* --- 3. GESTION DU SCROLL HORIZONTAL --- */
-    const scrollContainers = document.querySelectorAll('.desc_img');
-    scrollContainers.forEach((container) => {
-        container.addEventListener('wheel', (evt) => {
-            if (evt.deltaY !== 0) {
-                evt.preventDefault();
-                container.scrollLeft += evt.deltaY;
-            }
-        }, { passive: false });
-    });
+/* --- 3. GESTION DU SCROLL HORIZONTAL --- */
+const scrollContainers = document.querySelectorAll('.desc_img');
+
+scrollContainers.forEach((container) => {
+    container.addEventListener('wheel', (evt) => {
+        // On vérifie si le contenu dépasse effectivement du conteneur
+        const isScrollable = container.scrollWidth > container.clientWidth;
+
+        if (evt.deltaY !== 0 && isScrollable) {
+            evt.preventDefault();
+
+            // 1. Calculer la position théorique
+            let newScrollLeft = container.scrollLeft + evt.deltaY;
+
+            // 2. Calculer le max scrollable possible
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+            // 3. Brider la valeur entre 0 et le max (évite le dépassement invisible)
+            if (newScrollLeft < 0) newScrollLeft = 0;
+            if (newScrollLeft > maxScrollLeft) newScrollLeft = maxScrollLeft;
+
+            // 4. Appliquer le scroll
+            container.scrollLeft = newScrollLeft;
+        }
+    }, { passive: false });
+});
 
     /* --- 4. EFFET HOVER BOUTONS (FANCY BTN) --- */
     document.body.addEventListener("mousemove", (e) => {

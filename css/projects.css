@@ -56,7 +56,7 @@ h3{
     position: relative;
     justify-content: center;
     padding: 5vw;
-    background-image: url("/img/bg_stickers.jpg");
+    background-image: url("/img/bg_stickers.webp");
   background-size: cover;
   background-color: rgba(247, 185, 104, 50);
   z-index: 2;
@@ -402,7 +402,7 @@ video {
   white-space: normal;
 
   font-weight: 400;
-  font-size: clamp(1rem, 1.5vw, 1.5vw);
+  font-size: clamp(1rem, 1.2vw, 1.5vw);
 }
 
 .text {

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { xPercent: 0 }, 
         { 
             xPercent: 150, 
-            duration: 1, 
+            duration: 2, 
             ease: "power4.inOut",
             delay: 0.2 
         }
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 gsap.to(overlay, {
                     xPercent: 0,
-                    duration: 0.8,
+                    duration: 2,
                     ease: "power4.inOut",
                     onComplete: () => {
                         window.location.href = target;

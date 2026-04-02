@@ -14,7 +14,7 @@
     position: fixed;
     top: 0;
     left: -50%; /* On déborde à gauche */
-    width: 200%; /* On le fait très large pour couvrir la diagonale */
+    width: 300%; /* On le fait très large pour couvrir la diagonale */
     height: 100vh;
   background: #801616;
     z-index: 9999;
