@@ -178,7 +178,7 @@ nav a {
   text-decoration: none;
   color: #801616;
   font-weight: bold;
-  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
   position: relative; /* Indispensable pour placer le trait par rapport au texte */
   padding-bottom: 2px; /* Un petit espace pour que le trait ne colle pas trop aux lettres */
 }
