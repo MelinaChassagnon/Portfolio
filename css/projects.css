@@ -45,9 +45,12 @@ h2 {
 
 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 500;
     color: #690f0f;
     margin: 0;
+
+    transform: translateX(-5vw);
 }
 
 .header {
@@ -142,7 +145,7 @@ h3{
 }
 
 .description{
-    margin-left: 10%;
+    /* margin-left: 10%; */
 }
 
 .desc_img {
@@ -256,7 +259,7 @@ border-radius: 5px;
 
 .video_container {
     width: clamp(200px,80vw,700px);
-    margin: 5vh auto;
+    margin-top: 5vh;
 
     
     
@@ -391,6 +394,7 @@ video {
   background:rgb(248, 237, 231);
   color: #801616;
   font-family: 'nohemi', sans-serif;
+  text-transform: uppercase;
   border: 2px solid #801616;
   overflow: hidden;
   cursor: pointer;
@@ -401,7 +405,7 @@ video {
   width: max-content;
   white-space: normal;
 
-  font-weight: 400;
+  font-weight: 100;
   font-size: clamp(1rem, 1.2vw, 1.5vw);
 }
 

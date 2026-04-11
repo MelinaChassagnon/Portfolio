@@ -149,7 +149,8 @@ function setAnimationScroll() {
         }
     });
 
-    runAnimation3.fromTo(".sliding_text9 span", { y: "120%", opacity: 0 }, { y: "0%", opacity: 1, stagger: 0.08, duration: 1, ease: "power4.out" }, 0);
+    runAnimation3.fromTo(".sliding_text9 span", { y: "120%", opacity: 0 }, { y: "0%", opacity: 1, stagger: 0.08, duration: 1, ease: "power4.out" }, 0)
+    .fromTo(".contacts_stickers *", { scale: 0 }, { scale: 1, duration: 1 }, 0.5);
 
     // Pinning
     ScrollTrigger.create({

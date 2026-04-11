@@ -6,6 +6,8 @@ body, html {
   background-color: rgb(248, 237, 231);
   scrollbar-width: none;
   -webkit-scrollbar-display: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Cache instantané si la session "visited" existe */
@@ -48,8 +50,8 @@ body, html {
 
 .loader-title p {
   font-family: 'nohemi', sans-serif;
-  font-weight: 200;
-  font-weight: 1vw;
+  font-weight: 100;
+  font-size: 1vw;
 }
 
 #enter-wrapper {
@@ -169,7 +171,7 @@ nav {
   z-index: 100;
   /* background-color: rgb(248, 237, 231); */
   text-transform: uppercase;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'nohemi', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 nav a {
@@ -177,6 +179,29 @@ nav a {
   color: #801616;
   font-weight: bold;
   font-size: 1.5rem;
+  position: relative; /* Indispensable pour placer le trait par rapport au texte */
+  padding-bottom: 2px; /* Un petit espace pour que le trait ne colle pas trop aux lettres */
+}
+
+/* On crée la ligne */
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #801616;
+  
+  /* L'astuce est ici : on réduit la taille à 0 au centre */
+  transform: scaleX(0);
+  transform-origin: center; 
+  transition: transform 0.3s ease-out;
+}
+
+/* Au survol, on remet la taille à 1 */
+nav a:hover::after {
+  transform: scaleX(1);
 }
 
 .home_page {
@@ -342,6 +367,8 @@ nav a {
   font-size: clamp(1rem, 3vw, 2rem);
   font-weight: bold;
   width: 40vw;
+  display: flex;
+  flex-direction: column;
   
   
 }
@@ -351,6 +378,7 @@ nav a {
   justify-content: space-between;
     margin-left: 2vw;
   margin-right: 2vw;
+  font-size: clamp(1rem, 1vw, 4rem);
 }
 
 .text_group3 {
@@ -371,7 +399,7 @@ nav a {
 
 .title_group {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content:space-between;
 }
 
@@ -499,10 +527,33 @@ margin-right: 5vw;
 .nav_projects {
   font-family: 'nohemi', sans-serif;
   color: #801616;
+  font-size: clamp(1rem, 1vw, 4rem);
 }
 
 .nav_projects p {
   cursor: pointer;
+  position: relative; /* Indispensable pour positionner la ligne */
+  display: inline-block; /* Pour que la ligne s'arrête à la fin du texte */
+  margin-bottom: 5px; /* Un peu d'espace sous le texte */
+}
+
+.nav_projects p::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Épaisseur de ton soulignement */
+  bottom: -2px; /* Position sous le texte */
+  left: 0;
+  background-color: #801616;
+  
+  /* L'ANIMATION DEPUIS LA GAUCHE */
+  transform: scaleX(0);      /* Invisible par défaut (largeur 0) */
+  transform-origin: left;    /* L'animation part de la GAUCHE */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Transition fluide */
+}
+
+.nav_projects p:hover::after {
+  transform: scaleX(1);     /* Devient pleine largeur au survol */
 }
 
 #cd_chain_container {
@@ -776,6 +827,8 @@ footer {
 @media (max-width: 730px) {
   .title_group {
     flex-direction: column;
+    align-items: start;
+    transform: translateY(-5vw);
   }
 
   .text_group, .sliding_text1 {
@@ -784,8 +837,8 @@ footer {
     padding-left: 2vw;
   }
 
-  .sliding_text4, .sliding_text5 {
-
+  .text_group {
+    gap: 5px;
   }
 }
 
@@ -811,4 +864,6 @@ footer {
     width: 100% !important;
     padding: 0;
   }
+
+
 }

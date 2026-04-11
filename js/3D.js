@@ -20,13 +20,12 @@ const textureLoader = new THREE.TextureLoader(manager);
 
 const projectData = {
   multimedia: {
-    modelPath: "../3D/Cd.gltf", 
     projects: [
-      { title: "Campagne Fête de la Laine", tags: "Graphisme // Design UI/UX", description: "Création d'une campagne...", link: "/pages/project1.html" },
-      { title: "VAG Inventory", tags: "Graphisme // 3D", description: "Site web d'inventaire...", link: "/pages/project2.html" },
-      { title: "'THE MOTH'", tags: "Montage", description: "Court-métrage", link: "/pages/project3.html" },
-      { title: "Affiche NOOMA", tags: "Graphisme", description: "Affiche rapide", link: "/pages/project4.html" },
-      { title: "Logo", tags: "Graphisme", description: "Logo fictif", link: "/pages/project5.html" }
+      { title: "Campagne Fête de la Laine", tags: "Graphisme // Design UI/UX", description: "Création d'une campagne...", link: "/pages/project1.html", modelPath: "../3D/cd_laine.glb" },
+      { title: "VAG Inventory", tags: "Graphisme // Design UI/UX // 3D // Développement web", description: "Site web d'inventaire...", link: "/pages/project2.html", modelPath: "../3D/cd_vag.glb" },
+      { title: "'THE MOTH'", tags: "Montage", description: "Court-métrage", link: "/pages/project3.html", modelPath: "../3D/cd_moth.glb" },
+      { title: "Affiche NOOMA", tags: "Graphisme", description: "Affiche rapide", link: "/pages/project4.html", modelPath: "../3D/cd_nooma.glb" },
+      { title: "Teaser Exposition", tags: "Motion Design", description: "Motion design pour un teaser d'une exposition immersive", link: "/pages/project5.html", modelPath: "../3D/cd_teaser.glb" }
     ]
   },
   illustration: {
