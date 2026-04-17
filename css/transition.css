@@ -1,26 +1,12 @@
-/* .transition-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-  background: #801616;
-    z-index: 9999;
-    pointer-events: none;
-    visibility: visible; 
-} */
-
 .transition-overlay {
     position: fixed;
     top: 0;
-    left: -50%; /* On déborde à gauche */
-    width: 300%; /* On le fait très large pour couvrir la diagonale */
+    left: -50%;
+    width: 300%;
     height: 100vh;
   background: #801616;
     z-index: 9999;
     pointer-events: none;
-    /* L'inclinaison magique */
     transform: skewX(-20deg); 
-    /* Par défaut, on le cache loin à gauche */
     transform-origin: top left;
 }

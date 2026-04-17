@@ -15,7 +15,7 @@ body, html {
     display: none !important;
 }
 
-/* Animation de sortie fluide pour la première visite */
+/* Animation de sortie pour la première visite */
 .loader-hidden {
     opacity: 0;
     pointer-events: none;
@@ -61,11 +61,11 @@ body, html {
 
 #enter-btn {
     position: relative;
-    z-index: 10001 !important; /* Plus haut que l'overlay et le loader */
+    z-index: 10001 !important;
     cursor: pointer;
 }
 
-/* Classe pour cacher le loader à la fin */
+
 .loader-hidden {
   transform: translateY(-100%);
 }
@@ -178,12 +178,11 @@ nav a {
   text-decoration: none;
   color: #801616;
   font-weight: bold;
-  font-size: clamp(1rem, 1vw, 1.5rem);
-  position: relative; /* Indispensable pour placer le trait par rapport au texte */
-  padding-bottom: 2px; /* Un petit espace pour que le trait ne colle pas trop aux lettres */
+  font-size: clamp(1rem, 1.2gitvw, 4rem);
+  position: relative;
+  padding-bottom: 2px;
 }
 
-/* On crée la ligne */
 nav a::after {
   content: '';
   position: absolute;
@@ -192,14 +191,11 @@ nav a::after {
   bottom: 0;
   left: 0;
   background-color: #801616;
-  
-  /* L'astuce est ici : on réduit la taille à 0 au centre */
   transform: scaleX(0);
   transform-origin: center; 
   transition: transform 0.3s ease-out;
 }
 
-/* Au survol, on remet la taille à 1 */
 nav a:hover::after {
   transform: scaleX(1);
 }
@@ -462,9 +458,8 @@ margin-right: 5vw;
 }
 
 
-/* LA CORRECTION : Chaque ligne doit être un "table" pour coller au texte */
 .line {
-  display: table !important; /* C'est CA qui empêche le gros bloc */
+  display: table !important;
   position: relative !important;
   margin-bottom: 6px;
   overflow: hidden;
@@ -517,7 +512,7 @@ margin-right: 5vw;
 }
 
 .bottom h3 {
-    position: relative !important; /* On annule l'absolute précédent */
+    position: relative !important;
     top: 0 !important;
     padding-left: 0 !important;
     margin: 0;
@@ -532,28 +527,27 @@ margin-right: 5vw;
 
 .nav_projects p {
   cursor: pointer;
-  position: relative; /* Indispensable pour positionner la ligne */
-  display: inline-block; /* Pour que la ligne s'arrête à la fin du texte */
-  margin-bottom: 5px; /* Un peu d'espace sous le texte */
+  position: relative;
+  display: inline-block; 
+  margin-bottom: 5px; 
 }
 
 .nav_projects p::after {
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px; /* Épaisseur de ton soulignement */
-  bottom: -2px; /* Position sous le texte */
+  height: 2px;
+  bottom: -2px; 
   left: 0;
   background-color: #801616;
   
-  /* L'ANIMATION DEPUIS LA GAUCHE */
-  transform: scaleX(0);      /* Invisible par défaut (largeur 0) */
-  transform-origin: left;    /* L'animation part de la GAUCHE */
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Transition fluide */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .nav_projects p:hover::after {
-  transform: scaleX(1);     /* Devient pleine largeur au survol */
+  transform: scaleX(1);
 }
 
 #cd_chain_container {
