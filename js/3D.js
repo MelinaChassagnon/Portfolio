@@ -21,20 +21,20 @@ const textureLoader = new THREE.TextureLoader(manager);
 const projectData = {
   multimedia: {
     projects: [
-      { title: "Campagne Fête de la Laine", tags: "Graphisme // Design UI/UX", description: "Création d'une campagne...", link: "/pages/project1.html", modelPath: "./cd_laine.glb" },
-      { title: "VAG Inventory", tags: "Graphisme // Design UI/UX // 3D // Développement web", description: "Site web d'inventaire...", link: "/pages/project2.html", modelPath: "./cd_vag.glb" },
-      { title: "'THE MOTH'", tags: "Montage", description: "Court-métrage", link: "/pages/project3.html", modelPath: "./cd_moth.glb" },
-      { title: "Affiche NOOMA", tags: "Graphisme", description: "Affiche rapide", link: "/pages/project4.html", modelPath: "./cd_nooma.glb" },
-      { title: "Teaser Exposition", tags: "Motion Design", description: "Motion design pour un teaser d'une exposition immersive", link: "/pages/project5.html", modelPath: "./cd_teaser.glb" }
+      { title: "Campagne Fête de la Laine", tags: "Graphisme // Design UI/UX", description: "Création d'une campagne...", link: "/pages/project1.html", modelPath: "./public/cd_laine.glb" },
+      { title: "VAG Inventory", tags: "Graphisme // Design UI/UX // 3D // Développement web", description: "Site web d'inventaire...", link: "/pages/project2.html", modelPath: "./public/cd_vag.glb" },
+      { title: "'THE MOTH'", tags: "Montage", description: "Court-métrage", link: "/pages/project3.html", modelPath: "./public/cd_moth.glb" },
+      { title: "Affiche NOOMA", tags: "Graphisme", description: "Affiche rapide", link: "/pages/project4.html", modelPath: "./public/cd_nooma.glb" },
+      { title: "Teaser Exposition", tags: "Motion Design", description: "Motion design pour un teaser d'une exposition immersive", link: "/pages/project5.html", modelPath: "./public/cd_teaser.glb" }
     ]
   },
   illustration: {
     projects: [
-      { title: "Animation ambiance", tags: "animation // ambiance", description: "Courte animation test dans l'objectif de créer une ambiance", link: "/pages/illu1.html", modelPath: "./wolf_anime.glb"},
-      { title: "Illustrations sérigraphie", tags: "Illustration // sérigraphie", description: "Illustrations réalisées pour un stand de sérigraphie", link: "/pages/illu2.html", modelPath: "./cd_seri.glb" },
-      { title: "Notification animée", tags: "Animation", description: "Animation pour alerte de communauté", link: "/pages/illu3.html", modelPath: "./cd_eye.glb" },
-      { title: "Fond de site en Pixel Art", tags: "Pixel Art", description: "Illustration réalisée dans le cadre de la Nuit de l'Info", link: "/pages/illu4.html", modelPath: "./cd_pixelart.glb" },
-      { title: "Adaptation et peinture modèle 3D", tags: "3D // Illustration", description: "Adaptation et peinture d'un modèle 3D pour un site internet", link: "/pages/illu5.html", modelPath: "./cd_motoko.glb" }
+      { title: "Animation ambiance", tags: "animation // ambiance", description: "Courte animation test dans l'objectif de créer une ambiance", link: "/pages/illu1.html", modelPath: "./public/wolf_anime.glb"},
+      { title: "Illustrations sérigraphie", tags: "Illustration // sérigraphie", description: "Illustrations réalisées pour un stand de sérigraphie", link: "/pages/illu2.html", modelPath: "./public/cd_seri.glb" },
+      { title: "Notification animée", tags: "Animation", description: "Animation pour alerte de communauté", link: "/pages/illu3.html", modelPath: "./public/cd_eye.glb" },
+      { title: "Fond de site en Pixel Art", tags: "Pixel Art", description: "Illustration réalisée dans le cadre de la Nuit de l'Info", link: "/pages/illu4.html", modelPath: "./public/cd_pixelart.glb" },
+      { title: "Adaptation et peinture modèle 3D", tags: "3D // Illustration", description: "Adaptation et peinture d'un modèle 3D pour un site internet", link: "/pages/illu5.html", modelPath: "./public/cd_motoko.glb" }
     ]
   }
 };
