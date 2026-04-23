@@ -178,7 +178,7 @@ nav a {
   text-decoration: none;
   color: #801616;
   font-weight: bold;
-  font-size: clamp(1rem, 1.2gitvw, 4rem);
+  font-size: clamp(1rem, 1.2vw, 4rem);
   position: relative;
   padding-bottom: 2px;
 }
