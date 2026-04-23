@@ -655,6 +655,14 @@ margin-right: 5vw;
   border-radius: 10px;
 }
 
+.cd_next .text img, .cd_nav_arrow {
+  width: clamp(20px, 2vw, 2vw);
+  height: auto;
+}
+
+.cd_nav_arrow {
+  transform: scaleX(-1);
+}
 
 .contacts {
   height: 100vh;
